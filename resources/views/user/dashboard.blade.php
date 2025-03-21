@@ -28,8 +28,8 @@ $result = $conn->query($sql);
     <nav class="nav-menu">
         <a href="#main">Beranda</a>
         <a href="{{ route('user.deteksi.index') }}">Deteksi Stunting</a>
-        <a href="{{ route('user.deteksi.show', Auth::user()->id) }}">Riwayat Deteksi</a>
-        <a href="{{ route('user.artikel', ['id' => $berita->id]) }}">Artikel</a>
+        <a href="{{ route('user.deteksi.showUser', Auth::user()->id) }}">Riwayat Deteksi</a>
+        <a href="#artikel">Artikel</a>
 
 
         @if (Auth::check())
@@ -61,7 +61,7 @@ $result = $conn->query($sql);
             <h2 class="big-title">SELAMAT DATANG <br> Mom    {{ Auth::user()->nama_lengkap }}</h2>
             <p class="desc">Lakukan deteksi Stunting secara cepat untuk mencegah buah hati kita dari ancaman Stunting</p>
             <div class="buttons">
-                <a href="detekdini.php" class="btn btn-primary">Deteksi Sekarang</a>
+                <a href="{{ route('user.deteksi.index') }}" class="btn btn-primary">Deteksi Sekarang</a>
                 <a href="#pengertian" class="btn btn-secondary">Pelajari Stunting</a>
             </div>
         </div>
@@ -96,8 +96,8 @@ $result = $conn->query($sql);
         <div class="scroll-container">
             @foreach ($artikels as $news )
             <div class="scroll-item">
-               <a href="">
-                   <img src="{{ asset('storage/' . $news->gambar) }}" alt="{{ $news->judul }}">
+                <a href="{{ route('user.artikel.showUser', $news->id) }}">
+                   <img src="{{ asset($news->gambar) }}" alt="{{ $news->judul }}">
                    <p>{{ $news->judul }}</p>
                    <span>{{ Str::limit($news->deskripsi, 100) }}...</span>
                </a>

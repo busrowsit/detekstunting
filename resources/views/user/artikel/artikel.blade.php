@@ -96,7 +96,7 @@ $result = $conn->query($sql);
     <a href="{{ route('user.dashboard') }}">Beranda</a>
         <a href="{{ route('user.deteksi.index') }}">Deteksi Stunting</a>
         <a href="{{ route('user.deteksi.show', Auth::user()->id) }}">Riwayat Deteksi</a>
-        <a href="{{ route('user.dashboard') }}">Artikel</a>
+        <a href="{{ route('user.dashboard') }}#artikel">Artikel</a>
 
         @if (Auth::check())
         <div class="user-dropdown">
@@ -118,12 +118,12 @@ $result = $conn->query($sql);
 </header>
 
     <!-- HERO SECTION -->
-    @foreach ($artikels as $artikel)
+   
     <section id="artikel" class="scrollable-section">
         <main class="artikel-container">
-        <h1 class="artikel-judul">{{ $artikel->judul }}</h1>
-        <p class="artikel-tanggal">Dipublikasikan pada: {{ $artikel->tanggal }}</p>
-        <img src="{{ asset('storage/images/' . $artikel->gambar) }}" alt="{{ $artikel->judul }}"  class="artikel-gambar">
+            <h1 class="artikel-judul">{{ $artikel->judul }}</h1>
+            <p class="artikel-tanggal">Dipublikasikan pada: {{ $artikel->tanggal }}</p>            
+        <img src="{{ asset($artikel->gambar) }}" alt="{{ $artikel->judul }}"  class="artikel-gambar">
         <article class="artikel-isi">
         <?php
         $paragraf = explode('.',  $artikel->deskripsi); // Pisahkan berdasarkan titik
@@ -146,10 +146,10 @@ $result = $conn->query($sql);
     <h2 class="section-title">Artikel tentang Stunting</h2><br>
         <div class="scroll-wrapper">
             <div class="scroll-container">
-                @foreach ($artikels as $artikel )
+                @foreach ($berita as $artikel )
                 <div class="scroll-item">
-                    <a href="{{ route('user.artikel', $artikel->id) }}">
-                        <img src="{{ asset('storage/images/' . $artikel->gambar) }}" alt="{{ $artikel->judul }}">
+                    <a href="{{ route('user.artikel.showUser', $artikel->id) }}">
+                        <img src="{{ asset($artikel->gambar) }}" alt="{{ $artikel->judul }}">
                             <p>{{ $artikel->judul }}</p>
                             <span>{{ Str::limit($artikel->deskripsi, 100) }}...</span>
                         </a>
@@ -160,7 +160,6 @@ $result = $conn->query($sql);
         </div>
         <br><br><br><br>
     </section>
-    @endforeach
     <!-- FOOTER -->
     <footer class="footer">
         <p>Wsit Official Reserved - 2025</p>

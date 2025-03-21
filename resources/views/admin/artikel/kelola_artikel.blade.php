@@ -119,7 +119,7 @@ if (isset($_GET['hapus'])) {
                     {{ Auth::user()->username }}  ▼
                 </button>
             <div class="dropdown-content">
-                <a href="{{ route('user.profile.show', Auth::user()->id) }}">Profile</a>
+                <a href="{{ route('admin.profile.show', Auth::user()->id) }}">Profile</a>
                 <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                     @csrf
@@ -138,8 +138,22 @@ if (isset($_GET['hapus'])) {
     <h2 class="big-title" style="color: white;">Kelola Artikel</h2>
     
     <!-- Tombol Tambah Artikel -->
-    <a href="{{ route('admin.artikel.create') }}" class="btn btn-primary mb-3" class="btn btn-secondary" style="background-color: orange; color: white; border: 2px solid orange; padding: 10px 15px; border-radius: 5px; cursor: pointer;">Tambah Artikel</a>
-
+    <div class="d-flex align-items-center justify-content-between mb-3">
+        <a href="{{ route('admin.artikel.create') }}" class="btn btn-primary" style="background-color: orange; color: white; border: 2px solid orange; padding: 10px 15px; border-radius: 5px; cursor: pointer;">
+            Tambah Artikel
+        </a>
+    
+        <form method="GET" action="{{ route('admin.artikel.index') }}" class="d-flex align-items-center">
+            <label for="per_page" class="me-2" style="color: white;">Tampilkan:</label>
+            <select name="per_page" id="per_page" class="form-select" style="width: 150px;" onchange="this.form.submit()">
+                <option value="5" {{ request('per_page') == 5 ? 'selected' : '' }}>5</option>
+                <option value="10" {{ request('per_page') == 10 ? 'selected' : '' }}>10</option>
+                <option value="15" {{ request('per_page') == 15 ? 'selected' : '' }}>15</option>
+                <option value="20" {{ request('per_page') == 20 ? 'selected' : '' }}>20</option>
+            </select>
+        </form>
+    </div>
+    
     <table class="table table-bordered">
         <thead>
             <tr>
@@ -152,11 +166,14 @@ if (isset($_GET['hapus'])) {
             </tr>
         </thead>
         <tbody>
-            @foreach ($artikels as $artikel)
+            @foreach ($hasilArtikel as $artikel)    
             <tr>
                 <td>{{ $artikel->id }}</td>
                 <td>{{ $artikel->judul }}</td>
-                <td><img src="{{ ('storage/app/public/images/' . $artikel->gambar) }}" width="80"></td>
+                <td><img src="{{ asset($artikel->gambar) }}" alt="{{ $artikel->judul }}" width="80">
+                </td>
+                {{-- <td><img src="{{ asset($artikel->gambar) }}" alt="{{ $artikel->judul }}" width="80"> --}}
+                </td>
                 <td>{{ Str::limit($artikel->deskripsi, 50, '...') }}</td>
                 <td>{{ $artikel->tanggal }}</td>
                 <td>

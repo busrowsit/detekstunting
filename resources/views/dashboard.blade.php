@@ -67,7 +67,7 @@
             @foreach ($artikels  as $news )
             <div class="scroll-item">
                <a href="{{ route('artikel.showUnlogin', $news->id) }}">
-                   <img src="{{ asset('storage/' . $news->gambar) }}" alt="{{ $news->judul }}">
+                   <img src="{{ asset($news->gambar) }}" alt="{{ $news->judul }}">
                    <p>{{ $news->judul }}</p>
                    <span>{{ Str::limit($news->deskripsi, 100) }}...</span>
                </a>

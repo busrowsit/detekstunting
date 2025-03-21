@@ -74,6 +74,11 @@ $result = $stmt->get_result();
 <div class="table-container">
     <br><br><br>
     <h2 class="big-title" style="color: white;">Riwayat Deteksi Pengguna</h2><br>
+    <a href="{{ route('admin.hasilDeteksi.export', $hasilDeteksi->first()->user_id ?? 0) }}" 
+        class="btn btn-success mb-3">Export ke Excel</a>
+    <a href="{{ route('admin.hasilDeteksi.exportPDF', $hasilDeteksi->first()->user_id ?? 0) }}" 
+        class="btn btn-danger mb-3">Export ke PDF</a>
+         
     <table class="table table-bordered shadow">
         <thead class="table-dark">
             <tr>
@@ -92,23 +97,24 @@ $result = $stmt->get_result();
             </tr>
         </thead>
         <tbody>
-            @csrf
-            @method('PUT')
-                
-                <td>{{ $hasilDeteksi->id }}</td>
-                <td>{{ $hasilDeteksi->nama_lengkap }}</td>
-                <td>{{ $hasilDeteksi->kategori_usia }}</td>
-                <td>{{ $hasilDeteksi->kategori_lila }}</td>
-                <td>{{ $hasilDeteksi->kategori_tb }}</td>
-                <td>{{ $hasilDeteksi->kategori_anak }}</td>
-                <td>{{ $hasilDeteksi->kategori_ttd }}</td>
-                <td>{{ $hasilDeteksi->kategori_anc }}</td>
-                <td>{{ $hasilDeteksi->kategori_td }}</td>
-                <td>{{ $hasilDeteksi->kategori_hb }}</td>
-                <td>{{ $hasilDeteksi->hasil_deteksi }}</td>
-                <td>{{ $hasilDeteksi->created_at }}</td>
-                
+            @foreach ($hasilDeteksi as $riwayat)
+                <tr>
+                    <td>{{ $loop->iteration }}</td>
+                    <td>{{ $riwayat->nama_lengkap }}</td>
+                    <td>{{ $riwayat->kategori_usia }}</td>
+                    <td>{{ $riwayat->kategori_lila }}</td>
+                    <td>{{ $riwayat->kategori_tb }}</td>
+                    <td>{{ $riwayat->kategori_anak }}</td>
+                    <td>{{ $riwayat->kategori_ttd }}</td>
+                    <td>{{ $riwayat->kategori_anc }}</td>
+                    <td>{{ $riwayat->kategori_td }}</td>
+                    <td>{{ $riwayat->kategori_hb }}</td>
+                    <td>{{ $riwayat->hasil_deteksi }}</td>
+                    <td>{{ $riwayat->created_at }}</td>
+                </tr>
+            @endforeach
         </tbody>
+        
     </table>
 
     <a href="{{ route('admin.hasilDeteksi.index') }}" class="btn btn-secondary">Kembali</a>

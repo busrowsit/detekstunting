@@ -140,9 +140,24 @@ if (isset($_GET['reset'])) {
 <div class="table-container">
     <br><br><br>
     <h2 class="big-title" style="color: white;">Kelola Akun Pengguna</h2>
+
+        <!-- Tombol Tambah Artikel -->
+        <div class="d-flex align-items-center justify-content-between mb-3">
+        <a href="{{ route('admin.pengguna.create') }}" class="btn btn-primary" style="background-color: orange; color: white; border: 2px solid orange; padding: 10px 15px; border-radius: 5px; cursor: pointer;">
+            Tambah User
+        </a>
     
-    <!-- Tombol Tambah Artikel -->
-    <a href="{{ route('admin.pengguna.create') }}" class="btn btn-primary mb-3" class="btn btn-secondary" style="background-color: orange; color: white; border: 2px solid orange; padding: 10px 15px; border-radius: 5px; cursor: pointer;">Tambah User</a>
+        <form method="GET" action="{{ route('admin.pengguna.index') }}" class="d-flex align-items-center">
+            <label for="per_page" class="me-2" style="color: white;">Tampilkan:</label>
+            <select name="per_page" id="per_page" class="form-select" style="width: 150px;" onchange="this.form.submit()">
+                <option value="5" {{ request('per_page') == 5 ? 'selected' : '' }}>5</option>
+                <option value="10" {{ request('per_page') == 10 ? 'selected' : '' }}>10</option>
+                <option value="15" {{ request('per_page') == 15 ? 'selected' : '' }}>15</option>
+                <option value="20" {{ request('per_page') == 20 ? 'selected' : '' }}>20</option>
+            </select>
+        </form>
+    </div>
+
     <table class="table table-bordered shadow" style="background-color: rgba(255, 255, 255, 0.2); border-radius: 10px; overflow: hidden;">
     <thead class="table-dark">
             <tr>
@@ -155,7 +170,7 @@ if (isset($_GET['reset'])) {
             </tr>
         </thead>
         <tbody>
-            @foreach ($pengguna as $user )
+            @foreach ($hasilUser as $user )
             <tr>
                 <td>{{ $user->id }}</td>
                 <td>{{ $user->username }}</td>
@@ -177,6 +192,23 @@ if (isset($_GET['reset'])) {
                 </td>
             </tr>
             @endforeach
+
+            <!-- Tambahkan SweetAlert -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<!-- Tampilkan pop-up jika ada session 'success' -->
+@if(session('success'))
+<script>
+    Swal.fire({
+        title: "Berhasil!",
+        text: "{{ session('success') }}",
+        icon: "success",
+        confirmButtonColor: "#3085d6",
+        confirmButtonText: "OK"
+    });
+</script>
+@endif
+
         </tbody>
     </table>
 </div></div><br><br><br>

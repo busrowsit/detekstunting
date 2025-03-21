@@ -95,18 +95,17 @@ $result = $conn->query($sql);
     <nav class="nav-menu">
             <a href="{{ route('dashboard') }}">Beranda</a>
             <a href="{{ route('admin.auth.login') }}">Deteksi Stunting</a>
-            <a href="{{ route('artikel') }}">Artikel</a>
-            <a href="login/index.php" class="btn btn-secondary">Login</a>
+            <a href="{{ route('dashboard') }}">Artikel</a>
+            <a href="{{ route('admin.auth.login') }}" class="btn btn-secondary">Login</a>
         </nav>
 </header>
 
     <!-- HERO SECTION -->
-    @foreach ($artikels as $artikel)
     <section id="artikel" class="scrollable-section">
         <main class="artikel-container">
         <h1 class="artikel-judul">{{ $artikel->judul }}</h1>
         <p class="artikel-tanggal">Dipublikasikan pada: {{ $artikel->tanggal }}</p>
-        <img src="{{ asset('storage/images/' . $artikel->gambar) }}" alt="{{ $artikel->judul }}"  class="artikel-gambar">
+        <img src="{{ asset($artikel->gambar) }}" alt="{{ $artikel->judul }}"  class="artikel-gambar">
         <article class="artikel-isi">
         <?php
         $paragraf = explode('.',  $artikel->deskripsi); // Pisahkan berdasarkan titik
@@ -129,10 +128,10 @@ $result = $conn->query($sql);
     <h2 class="section-title">Artikel tentang Stunting</h2><br>
         <div class="scroll-wrapper">
             <div class="scroll-container">
-                @foreach ($artikels as $artikel )
+                @foreach ($berita as $artikel )
                 <div class="scroll-item">
-                    <a href="{{ route('artikel', $artikel->id) }}">
-                        <img src="{{ asset('storage/images/' . $artikel->gambar) }}" alt="{{ $artikel->judul }}">
+                    <a href="{{ route('artikel.showUnlogin', $artikel->id) }}">
+                        <img src="{{ asset($artikel->gambar) }}" alt="{{ $artikel->judul }}">
                             <p>{{ $artikel->judul }}</p>
                             <span>{{ Str::limit($artikel->deskripsi, 100) }}...</span>
                         </a>
@@ -143,7 +142,6 @@ $result = $conn->query($sql);
         </div>
         <br><br><br><br>
     </section>
-    @endforeach
     <!-- FOOTER -->
     <footer class="footer">
         <p>Wsit Official Reserved - 2025</p>

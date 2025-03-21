@@ -9,14 +9,29 @@ use Illuminate\Support\Facades\Storage;
 
 class ArtikelController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+
+    public function index(Request $request)
+    {
+        // Ambil jumlah data per halaman dari dropdown (default 5)
+        $perPage = $request->input('per_page', 5);
+    
+        // Ambil data terbaru setiap user berdasarkan created_at (hanya 1 per user)
+        $hasilArtikel = Artikel::select('artikel.*')
+            ->whereIn('id', function ($query) {
+                $query->selectRaw('MAX(id)')
+                      ->from('artikel')
+                      ->groupBy('id');
+            })
+            ->orderBy('id', 'asc') // Urutkan dari yang terbaru
+            ->paginate($perPage);
+    
+        return view('admin.artikel.kelola_artikel', compact('hasilArtikel', 'perPage'));
+    }
+
+    public function indexUser(Request $request)
     {
         $artikels = Artikel::all();
-        return view('admin.artikel.kelola_artikel',compact('artikels'));
-
+        return view('user.artikel.artikel', compact('artikels'));
     }
 
     public function indexUnlogin(){
@@ -24,17 +39,7 @@ class ArtikelController extends Controller
         return view('artikel',compact('artikels'));
     }
 
-    public function indexUser(string $id)
-{
-    $artikels = Artikel::all();
-    $berita = Artikel::find($id);
-
-    if (!$berita) {
-        abort(404, 'Artikel tidak ditemukan');
-    }
-
-    return view('user.artikel.artikel', compact('artikels', 'berita'));
-}
+   
 
     /**
      * Show the form for creating a new resource.
@@ -44,10 +49,9 @@ class ArtikelController extends Controller
         return view('admin.artikel.tambah_artikel');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    
+
+public function store(Request $request)
 {
     $request->validate([
         'judul' => 'required',
@@ -56,18 +60,16 @@ class ArtikelController extends Controller
         'tanggal' => 'nullable',
     ]);
 
-    // Debugging untuk memastikan path benar
-    dd(storage_path('app/public/images'));
-
     $gambar = $request->file('gambar');
     $namaFile = time() . '_' . $gambar->getClientOriginalName();
 
-    // Simpan gambar ke public/storage/images
-    $gambarPath = $gambar->storeAs('images', $namaFile, 'public');
+    // Simpan gambar langsung ke public/storage/images
+    $gambarPath = 'storage/images/' . $namaFile;
+    $gambar->move(public_path('storage/images'), $namaFile);
 
     $artikel = new Artikel;
     $artikel->judul = $request->judul;
-    $artikel->gambar = $gambarPath;
+    $artikel->gambar = $gambarPath; // Simpan path yang sesuai
     $artikel->deskripsi = $request->deskripsi;
     $artikel->tanggal = $request->tanggal ?? now();
     $artikel->save();
@@ -76,11 +78,7 @@ class ArtikelController extends Controller
 }
 
 
-    
 
-    /**
-     * Display the specified resource.
-     */
     public function show(string $id)
 {
     $artikel = Artikel::find($id);
@@ -92,6 +90,16 @@ class ArtikelController extends Controller
 
     return view('admin.artikel.view_artikel', compact('artikel','berita'));
 }
+
+public function showUser(string $id)
+{
+    $artikel = Artikel::find($id); // Jika tidak ditemukan, error 404 otomatis
+    $berita = Artikel::all();
+
+    return view('user.artikel.artikel', compact('artikel', 'berita'));
+}
+
+
 
     public function showUnlogin(string $id)
 {

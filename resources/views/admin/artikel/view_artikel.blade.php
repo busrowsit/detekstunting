@@ -123,7 +123,7 @@ $result = $conn->query($sql);
     <main class="artikel-container">      
     <h1 class="artikel-judul">{{ $artikel->judul }}</h1>
     <p class="artikel-tanggal">Dipublikasikan pada: {{ $artikel->tanggal }}</p>
-    <img src="{{ asset('storage/images/' . $artikel->gambar) }}" alt="{{ $artikel->judul }}"  class="artikel-gambar">
+    <img src="{{ asset($artikel->gambar) }}" alt="{{ $artikel->judul }}"  class="artikel-gambar">
     <article class="artikel-isi">
     <?php
     $paragraf = explode('.', $artikel->deskripsi); // Pisahkan berdasarkan titik
@@ -149,7 +149,7 @@ $result = $conn->query($sql);
      @foreach ($berita as $news )
      <div class="scroll-item">
         <a href="{{ route('admin.artikel.show', $news->id) }}">
-            <img src="{{ asset('storage/' . $news->gambar) }}" alt="{{ $news->judul }}">
+            <img src="{{ asset($news->gambar) }}" alt="{{ $news->judul }}">
             <p>{{ $news->judul }}</p>
             <span>{{ Str::limit($news->deskripsi, 100) }}...</span>
         </a>
