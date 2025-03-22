@@ -64,7 +64,15 @@
     <h2 class="section-title">Artikel tentang Stunting</h2>
     <div class="scroll-wrapper">
         <div class="scroll-container">
-    
+            @foreach ($artikels  as $news )
+            <div class="scroll-item">
+               <a href="{{ route('artikel.showUnlogin', $news->id) }}">
+                   <img src="{{ asset($news->gambar) }}" alt="{{ $news->judul }}">
+                   <p>{{ $news->judul }}</p>
+                   <span>{{ Str::limit($news->deskripsi, 100) }}...</span>
+               </a>
+           </div>
+            @endforeach    
         </div>
     </div>
 </section>  <br><br><br><br><br><br>
