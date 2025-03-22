@@ -34,13 +34,9 @@ class AuthController extends Controller
     }
 
     public function index(){
-         // Ambil artikel terbaru
-        $artikels = Artikel::orderBy('tanggal', 'desc')->get();
-        $berita = $artikels->first(); // Ambil satu artikel terbaru
-       
-         $user = Auth::user();
+
      
-         return view('dashboard', compact('artikels', 'user', 'berita'));
+         return view('dashboard');
     }
 
     public function logout(Request $request)
