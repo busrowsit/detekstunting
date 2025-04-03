@@ -72,28 +72,37 @@ public function resetPassword(Request $request)
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-{
-    // $pengguna = User::all();
-    $request->validate([
-        'username' => 'required',
-        'nama_lengkap' => 'required',
-        'tanggal_lahir' => 'required',
-        'email' => 'required',
-        'password' => 'required',
-    ]);
-
-    $pengguna = new User();
-    $pengguna->username = $request->username;
-    $pengguna->nama_lengkap = $request->nama_lengkap;
-    $pengguna->tanggal_lahir = $request->tanggal_lahir;
-    $pengguna->email = $request->email;
-    $pengguna->password = Hash::make($request->password);
-    $pengguna->save();
-
-    // return view('admin.users.user',compact('pengguna'));
-    // return view('admin.users.tambah_user');
-    return redirect()->route('admin.pengguna.index')->with('success', 'Pengguna berhasil ditambahkan!');
-}
+    {
+        $request->validate([
+            'username' => 'required|unique:users,username',
+            'nama_lengkap' => 'required',
+            'tanggal_lahir' => 'required|date',
+            'email' => 'required|email',
+            'password' => 'required|min:6',
+        ], [
+            'username.required' => 'Username wajib diisi.',
+            'username.unique' => 'Username sudah digunakan. Silakan pilih username lain.',
+            'nama_lengkap.required' => 'Nama lengkap wajib diisi.',
+            'tanggal_lahir.required' => 'Tanggal lahir wajib diisi.',
+            'tanggal_lahir.date' => 'Format tanggal lahir tidak valid.',
+            'email.required' => 'Email wajib diisi.',
+            'email.email' => 'Format email tidak valid.',
+            'password.required' => 'Password wajib diisi.',
+            'password.min' => 'Password minimal 6 karakter.'
+        ]);
+    
+        // Simpan data pengguna baru
+        $pengguna = new User();
+        $pengguna->username = $request->username;
+        $pengguna->nama_lengkap = $request->nama_lengkap;
+        $pengguna->tanggal_lahir = $request->tanggal_lahir;
+        $pengguna->email = $request->email; // Email boleh sama
+        $pengguna->password = Hash::make($request->password);
+        $pengguna->save();
+    
+        return redirect()->route('admin.pengguna.index')->with('success', 'Pengguna berhasil ditambahkan!');
+    }
+    
 
 
     /**
