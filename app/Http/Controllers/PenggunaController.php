@@ -127,6 +127,6 @@ public function resetPassword(Request $request)
     {
         $pengguna = User::findOrFail($id);
         $pengguna->delete();
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Akun berhasil dihapus!');
     }
 }
