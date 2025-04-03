@@ -116,7 +116,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
     <div class="input-box">
         <i class='bx bxs-envelope'></i>
-        <input type="email" name="email" placeholder="Email (Opsional)" class="form-control">
+        <input type="email" name="email" placeholder="Email (jika tidak punya isi dengan 123@g.com)" class="form-control">
     </div>
     <div class="input-box">
         <i class='bx bxs-calendar'></i>

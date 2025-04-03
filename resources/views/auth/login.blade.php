@@ -75,7 +75,7 @@
                     <i class='bx bxs-calendar'></i>
                 </div>
                 <div class="input-box">
-                    <input type="email" name="email" placeholder="Email (Opsional)">
+                    <input type="email" name="email" placeholder="Email (jika tidak punya isi dengan 123@g.com)">
                     <i class='bx bxs-envelope'></i>
                 </div>
                 <div class="input-box">

@@ -67,7 +67,7 @@
                     <i class='bx bxs-calendar'></i>
                 </div>
                 <div class="input-box">
-                    <input type="email" name="email" id="email" placeholder="Email (Opsional)" value="{{ old('email') }}">
+                    <input type="email" name="email" id="email" placeholder="Email (jika tidak punya isi dengan 123@g.com)" value="{{ old('email') }}">
                     <i class='bx bxs-envelope'></i>
                 </div>
                 <div class="input-box">
