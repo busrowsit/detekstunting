@@ -60,9 +60,9 @@ class DeteksiController extends Controller
     
         list($sistolik, $diastolik) = explode("/", str_replace(' ', '', $request->tekanan_darah));
     
-        if ($sistolik <= 100 && $diastolik <= 60) {
+        if ($sistolik <= 100 || $diastolik <= 60) {
             $kategori_td = 'Hipotensi';
-        } elseif ($sistolik >= 130 && $diastolik >= 90) {
+        } elseif ($sistolik >= 130 || $diastolik >= 90) {
             $kategori_td = 'Hipertensi';
         } else {
             $kategori_td = 'Normal';
