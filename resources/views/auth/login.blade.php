@@ -86,6 +86,22 @@
             </form>
         </div>
 
+            <!-- Tambahkan SweetAlert -->
+            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<!-- Tampilkan pop-up jika ada session 'success' -->
+@if(session('success'))
+<script>
+    Swal.fire({
+        title: "Berhasil!",
+        text: "{{ session('success') }}",
+        icon: "success",
+        confirmButtonColor: "#3085d6",
+        confirmButtonText: "OK"
+    });
+</script>
+@endif
+
         <div class="toggle-box">
             <div class="toggle-panel toggle-left">
                 <img src="{{ asset('assets/img/logo-01.png') }}" alt="Logo" class="logo">
