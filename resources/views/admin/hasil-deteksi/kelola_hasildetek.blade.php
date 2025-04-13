@@ -148,7 +148,7 @@ $result = $conn->query($query);
             @foreach ($hasilDeteksi as $riwayat)
             <tr>
                 <td>{{ $riwayat->id }}</td>
-                <td>{{ $riwayat->nama_lengkap }}</td>
+                <td>{{ $riwayat->user->nama_lengkap }}</td>
                 <td>{{ $riwayat->usia }}</td>
                 <td>{{ $riwayat->lila }}</td>
                 <td>{{ $riwayat->tb_ibu }}</td>
