@@ -21,8 +21,6 @@ class DeteksiSeeder extends Seeder
             foreach ($users as $user) {
                 Deteksi::create([
                     'user_id' => $user->id,
-                    'nama_lengkap' => $user->nama_lengkap,
-                    'tanggal_lahir' => '2000-01-01',
                     'usia' => 25,
                     'kategori_usia' => 'Tidak berisiko',
                     'hpht' => '2025-01-01',

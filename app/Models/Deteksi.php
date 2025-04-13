@@ -12,8 +12,6 @@ class Deteksi extends Model
 
     protected $fillable = [
         'user_id',
-        'nama_lengkap',
-        'tanggal_lahir',
         'usia',
         'kategori_usia',
         'hpht',

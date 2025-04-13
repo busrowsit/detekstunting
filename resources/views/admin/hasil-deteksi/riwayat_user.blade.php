@@ -83,7 +83,6 @@ $result = $stmt->get_result();
         <thead class="table-dark">
             <tr>
             <th>No</th>
-            <th>Nama Lengkap</th>
             <th>Kategori Usia</th>
             <th>Kategori LILA</th>
             <th>Kategori TB</th>
@@ -100,7 +99,6 @@ $result = $stmt->get_result();
             @foreach ($hasilDeteksi as $riwayat)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
-                    <td>{{ $riwayat->nama_lengkap }}</td>
                     <td>{{ $riwayat->kategori_usia }}</td>
                     <td>{{ $riwayat->kategori_lila }}</td>
                     <td>{{ $riwayat->kategori_tb }}</td>

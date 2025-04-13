@@ -14,8 +14,6 @@ return new class extends Migration
         Schema::create('riwayat_deteksi', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->nullable()->constrained()->onDelete('cascade'); 
-            $table->string('nama_lengkap');
-            $table->date('tanggal_lahir');
             $table->integer('usia');
             $table->enum('kategori_usia',['Berisiko', 'Tidak berisiko'])->default('Tidak berisiko');
             $table->date('hpht');

@@ -93,8 +93,6 @@ class DeteksiController extends Controller
         // Simpan ke database
         Deteksi::create([
             'user_id' => $user->id,
-            'nama_lengkap' => $user->nama_lengkap,
-            'tanggal_lahir' => $user->tanggal_lahir,
             'usia' => $usia,
             'kategori_usia' => $kategori_usia,
             'hpht' => $request->hpht,
