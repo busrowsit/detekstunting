@@ -3,7 +3,7 @@ include '../config.php';
 session_start();
 
 // Ambil semua user dan data deteksi terbaru jika ada
-$query = "SELECT u.id AS user_id, 
+$query = "SELECT u.id AS user_id, u.nama_lengkap, 
                  COALESCE(r.usia, '-') AS usia, 
                  COALESCE(r.lila, '-') AS lila, 
                  COALESCE(r.tb_ibu, '-') AS tb_ibu, 
@@ -134,6 +134,7 @@ $result = $conn->query($query);
         <thead class="table-dark">
             <tr>
                 <th>ID</th>
+                <th>Nama Lengkap</th>
                 <th>Usia</th>
                 <th>LILA</th>
                 <th>TB Ibu</th>
@@ -147,6 +148,7 @@ $result = $conn->query($query);
             @foreach ($hasilDeteksi as $riwayat)
             <tr>
                 <td>{{ $riwayat->id }}</td>
+                <td>{{ $riwayat->nama_lengkap }}</td>
                 <td>{{ $riwayat->usia }}</td>
                 <td>{{ $riwayat->lila }}</td>
                 <td>{{ $riwayat->tb_ibu }}</td>
