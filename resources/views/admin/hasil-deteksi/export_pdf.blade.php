@@ -34,7 +34,7 @@
             @foreach ($hasilDeteksi as $index => $riwayat)
                 <tr>
                     <td>{{ $index + 1 }}</td>
-                    <td>{{ $riwayat->nama_lengkap }}</td>
+                    <td>{{ $riwayat->user->nama_lengkap }}</td>
                     <td>{{ $riwayat->kategori_usia }}</td>
                     <td>{{ $riwayat->kategori_lila }}</td>
                     <td>{{ $riwayat->kategori_tb }}</td>
