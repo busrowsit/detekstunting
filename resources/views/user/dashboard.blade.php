@@ -51,7 +51,21 @@ $result = $conn->query($sql);
     </nav>
 </header>
 
+            <!-- Tambahkan SweetAlert -->
+            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+<!-- Tampilkan pop-up jika ada session 'success' -->
+@if(session('success'))
+<script>
+    Swal.fire({
+        title: "Berhasil!",
+        text: "{{ session('success') }}",
+        icon: "success",
+        confirmButtonColor: "#3085d6",
+        confirmButtonText: "OK"
+    });
+</script>
+@endif
 
     <!-- HERO SECTION -->
     <section id="main" class="hero">
