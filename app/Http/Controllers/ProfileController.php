@@ -47,7 +47,7 @@ class ProfileController extends Controller
         $user->password = $request->password;
         $user->update($request->all());
 
-        return redirect()->route('admin.dashboard');
+        return redirect()->route('admin.dashboard')->with('success', 'Profile berhasil diperbarui!');
     }
 
     public function updateUser(Request $request, string $id){
@@ -66,7 +66,7 @@ class ProfileController extends Controller
         $user->password = $request->password;
         $user->update($request->all());
 
-        return redirect()->route('user.dashboard');
+        return redirect()->route('user.dashboard')->with('success', 'Profile berhasil diperbarui!');
     }
     
     
