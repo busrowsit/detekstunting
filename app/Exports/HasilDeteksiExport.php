@@ -18,17 +18,30 @@ class HasilDeteksiExport implements FromCollection, WithHeadings, ShouldAutoSize
 
     public function collection()
     {
-        return Deteksi::where('user_id', $this->user_id)->get([
-            'kategori_usia', 'kategori_lila', 'kategori_tb',
-            'kategori_anak', 'kategori_ttd', 'kategori_anc', 'kategori_td',
-            'kategori_hb', 'hasil_deteksi', 'created_at'
-        ]);
+        return Deteksi::with('user')
+            ->where('user_id', $this->user_id)
+            ->get()
+            ->map(function ($item) {
+                return [
+                    'nama_lengkap'     => $item->user->nama_lengkap ?? '-',
+                    'kategori_usia'    => $item->kategori_usia,
+                    'kategori_lila'    => $item->kategori_lila,
+                    'kategori_tb'      => $item->kategori_tb,
+                    'kategori_anak'    => $item->kategori_anak,
+                    'kategori_ttd'     => $item->kategori_ttd,
+                    'kategori_anc'     => $item->kategori_anc,
+                    'kategori_td'      => $item->kategori_td,
+                    'kategori_hb'      => $item->kategori_hb,
+                    'hasil_deteksi'    => $item->hasil_deteksi,
+                    'created_at'       => $item->created_at,
+                ];
+            });
     }
 
     public function headings(): array
     {
         return [
-            'Kategori Usia', 'Kategori LILA', 'Kategori TB',
+            'Nama Lengkap', 'Kategori Usia', 'Kategori LILA', 'Kategori TB',
             'Kategori Anak', 'Kategori TTD', 'Kategori ANC', 'Kategori TD',
             'Kategori HB', 'Hasil Deteksi', 'Tanggal Deteksi'
         ];
