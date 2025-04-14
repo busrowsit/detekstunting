@@ -191,7 +191,7 @@
                         </div>
                         <label>Lingkar Lengan Atas (cm)</label>
                         <div class="input-container">
-                            <input type="number" name="lila" required oninput="updateKategori(this, 'kategoriLila')">
+                            <input type="number" step="0.1" name="lila" required oninput="updateKategori(this, 'kategoriLila')">
                             <span class="kategori" id="kategoriLila"></span>
                         </div>
 
@@ -205,7 +205,7 @@
                     <div class="step">
                         <label>Tinggi Badan Ibu (cm)</label>
                         <div class="input-container">
-                            <input type="number" name="tb_ibu" required oninput="updateKategori(this, 'kategoriTB')">
+                            <input type="number" step="0.1" name="tb_ibu" required oninput="updateKategori(this, 'kategoriTB')">
                             <span class="top-text" id="kategoriTB"></span><br>
                         </div>
 
