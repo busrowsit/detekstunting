@@ -257,23 +257,45 @@
             </form>
             <br>
             @if (session('hasil_deteksi'))
-            @php
-                $hasil_prediksi = session('hasil_deteksi');
-                $warna = ($hasil_prediksi == "NORMAL") ? "normal" : "stunting";
-            @endphp
-        
-            <div class="hasil-deteksi">
-                <h3 class="hasil-judul">Hasil Deteksi Stunting</h3>
-                <p><strong>Prediksi Kelahiran Anak Anda:</strong> <span class="{{ $warna }}" style="  font-size: 28px;
-            font-weight: bold;
-            text-transform: uppercase;">{{ $hasil_prediksi }}</span></p>
-                <p class="hasil-catatan">
-                    <strong>NB:</strong> <em>Sistem DetekStunting dapat melakukan kesalahan dalam prediksi.</em> 
-                    Hasil di atas hanya sebagai analisis awal. Selalu lakukan pemeriksaan kesehatan rutin 
-                    selama kehamilan dan kunjungi fasilitas kesehatan jika Anda mengalami masalah kesehatan.
-                </p>
-            </div>
-        @endif
+    @php
+        $hasil_prediksi = session('hasil_deteksi');
+        $warna = ($hasil_prediksi == "NORMAL") ? "normal" : "stunting";
+        $rekomendasi = session('rekomendasi');
+    @endphp
+
+    <div class="hasil-deteksi">
+        <h3 class="hasil-judul">Hasil Deteksi Stunting</h3>
+        <p>
+            <strong>Prediksi Kelahiran Anak Anda:</strong>
+            <span class="{{ $warna }}" style="font-size: 28px; font-weight: bold; text-transform: uppercase;">
+                {{ $hasil_prediksi }}
+            </span>
+        </p>
+        <p class="hasil-catatan">
+            <strong>NB:</strong>
+            <em>Sistem DetekStunting dapat melakukan kesalahan dalam prediksi.</em> 
+            Hasil di atas hanya sebagai analisis awal. Selalu lakukan pemeriksaan kesehatan rutin 
+            selama kehamilan dan kunjungi fasilitas kesehatan jika Anda mengalami masalah kesehatan.
+        </p>
+    </div>
+
+    @if ($rekomendasi)
+        <div class="rekomendasi-box">
+            <h4>Rekomendasi untuk Anda:</h4>
+            <ul>
+                <li><strong>Usia Ibu:</strong> {{ $rekomendasi['usia'] }}</li>
+                <li><strong>LILA:</strong> {{ $rekomendasi['lila'] }}</li>
+                <li><strong>Tinggi Badan Ibu:</strong> {{ $rekomendasi['tb'] }}</li>
+                <li><strong>Jumlah Anak:</strong> {{ $rekomendasi['anak'] }}</li>
+                <li><strong>Tablet Tambah Darah (TTD):</strong> {{ $rekomendasi['ttd'] }}</li>
+                <li><strong>ANC (Pemeriksaan Kehamilan):</strong> {{ $rekomendasi['anc'] }}</li>
+                <li><strong>Tekanan Darah:</strong> {{ $rekomendasi['td'] }}</li>
+                <li><strong>Kadar HB:</strong> {{ $rekomendasi['hb'] }}</li>
+            </ul>
+        </div>
+    @endif
+@endif
+
         
       
         

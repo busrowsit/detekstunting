@@ -90,6 +90,13 @@ class DeteksiController extends Controller
             $kategori_anc
         );
     
+
+        $rekomendasi = $this->generateRekomendasi(
+            $kategori_usia, $kategori_lila, $kategori_tb, $kategori_anak,
+            $kategori_ttd, $kategori_anc, $kategori_td, $kategori_hb
+        );        
+
+
         // Simpan ke database
         Deteksi::create([
             'user_id' => $user->id,
@@ -114,9 +121,56 @@ class DeteksiController extends Controller
         ]);
     
         // Simpan hasil deteksi ke session agar bisa diakses di Blade
-        return redirect()->route('user.deteksi.index')->with('hasil_deteksi', $hasil_deteksi);
+        return redirect()->route('user.deteksi.index')->with([
+            'hasil_deteksi' => $hasil_deteksi,
+            'rekomendasi' => $rekomendasi
+        ]);
+        
     }
 
+
+    private function generateRekomendasi($kategori_usia, $kategori_lila, $kategori_tb, $kategori_anak, $kategori_ttd, $kategori_anc, $kategori_td, $kategori_hb)
+    {
+        return [
+            'usia' => ($kategori_usia == 'Berisiko') 
+                ? 'Rencanakan kehamilan di usia lebih dari 20 tahun dan kurang dari 35 tahun.' 
+                : 'Kamu berada di usia yang ideal untuk hamil. Semangat bunda!',
+            
+            'lila' => ($kategori_lila == 'Berisiko') 
+                ? 'Konsumsi makanan bergizi dan rutin periksa kesehatan kehamilan.' 
+                : 'LILA Anda dalam batas normal. Tetap jaga kesehatan ya bunda!',
+            
+            'tb' => ($kategori_tb == 'Pendek') 
+                ? 'Tinggi badan Anda termasuk pendek, perhatikan asupan gizi sejak remaja dan selama kehamilan.' 
+                : 'Tinggi badan Anda dalam rentang ideal.',
+            
+            'anak' => ($kategori_anak == 'Berisiko') 
+                ? 'Jumlah anak lebih dari dua dapat meningkatkan risiko stunting. Atur jarak kehamilan dengan baik.' 
+                : 'Jumlah anak masih dalam batas ideal.',
+            
+            'ttd' => ($kategori_ttd == 'Kurang') 
+                ? 'Konsumsi minimal 90 tablet tambah darah selama kehamilan untuk mencegah anemia.' 
+                : 'Konsumsi TTD Anda sudah cukup. Pertahankan terus ya!',
+            
+            'anc' => ($kategori_anc == 'Kurang') 
+                ? 'Lakukan pemeriksaan kehamilan minimal 6 kali selama masa kehamilan.' 
+                : 'Jumlah kunjungan ANC sudah cukup. Teruskan kebiasaan baik ini!',
+            
+            'td' => match($kategori_td) {
+                'Hipotensi' => 'Tekanan darah rendah, segera konsultasikan ke fasilitas kesehatan.',
+                'Hipertensi' => 'Tekanan darah tinggi dapat membahayakan ibu dan janin. Periksakan secara rutin.',
+                default => 'Tekanan darah normal. Pertahankan pola hidup sehat!',
+            },
+            
+            'hb' => match($kategori_hb) {
+                'Anemia berat' => 'Segera konsultasi ke dokter, ini kondisi serius.',
+                'Anemia sedang' => 'Perbanyak konsumsi zat besi dan vitamin C.',
+                'Anemia ringan' => 'Tingkatkan konsumsi makanan kaya zat besi.',
+                default => 'HB normal. Tetap pertahankan pola makan sehat.',
+            },
+        ];
+    }
+    
 
     // Fungsi deteksiStunting
     function deteksiStunting($hb, $ttd, $lila, $usia, $jumlah_anak, $tinggi_badan_ibu, $tekanan_darah, $anc) {
