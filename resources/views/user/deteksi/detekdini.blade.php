@@ -130,6 +130,32 @@
             cursor: pointer;
             /* Biar bisa diklik */
         }
+
+        .modal-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 9999;
+}
+.modal-box {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+.modal-box button {
+  margin-top: 15px;
+  background-color: #3490dc;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
         </style>
     <link rel="stylesheet" href="{{ asset('user-style.css') }}">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -165,6 +191,15 @@
             @endauth
         </nav>
     </header>
+
+    <!-- Modal Pop-up -->
+<div id="popupModal" class="modal-overlay" style="display: none;">
+  <div class="modal-box">
+    <p><strong>Informasi:</strong><br>
+    Untuk melakukan deteksi dini stunting, Anda sudah pernah melakukan pemeriksaan selama kehamilan minimal pada trimester kedua kehamilan, agar prediksi yang dihasilkan akurat.</p>
+    <button onclick="closePopup()">Tutup</button>
+  </div>
+</div>
 
     <section id="main" class="hero">
         <div class="hero-content">
@@ -437,6 +472,13 @@
                 document.getElementById("kategoriTekananDarah").innerText = "";
             }
         }
+
+        window.onload = function() {
+  document.getElementById("popupModal").style.display = "flex";
+}
+function closePopup() {
+  document.getElementById("popupModal").style.display = "none";
+}
         </script>
 </body>
 </html>
