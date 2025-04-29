@@ -290,45 +290,37 @@
         <div class="rekomendasi-box">
             <h3 class="hasil-judul">Rekomendasi untuk Anda:</h3>
             <ul style="list-style: none; padding-left: 0; margin: 0;">
-            <li><strong>Usia Ibu:</strong> 
-    <span style="color: {{ $rekomendasi['usia']['status'] == 'merah' ? 'red' : 'green' }};">
-        {{ $rekomendasi['usia']['teks'] }}
-    </span>
+            <li>
+    <strong style="color: {{ $rekomendasi['usia']['status'] == 'merah' ? 'red' : 'green' }};">Usia Ibu:</strong>
+    <span style="color: white;"> {{ $rekomendasi['usia']['teks'] }}</span>
 </li>
-<li><strong>LILA:</strong> 
-    <span style="color: {{ $rekomendasi['lila']['status'] == 'merah' ? 'red' : 'green' }};">
-        {{ $rekomendasi['lila']['teks'] }}
-    </span>
+<li>
+    <strong style="color: {{ $rekomendasi['lila']['status'] == 'merah' ? 'red' : 'green' }};">LILA:</strong>
+    <span style="color: white;"> {{ $rekomendasi['lila']['teks'] }}</span>
 </li>
-<li><strong>Tinggi Badan Ibu:</strong> 
-    <span style="color: {{ $rekomendasi['tb']['status'] == 'merah' ? 'red' : 'green' }};">
-        {{ $rekomendasi['tb']['teks'] }}
-    </span>
+<li>
+    <strong style="color: {{ $rekomendasi['tb']['status'] == 'merah' ? 'red' : 'green' }};">Tinggi Badan Ibu:</strong>
+    <span style="color: white;"> {{ $rekomendasi['tb']['teks'] }}</span>
 </li>
-<li><strong>Jumlah Anak:</strong> 
-    <span style="color: {{ $rekomendasi['anak']['status'] == 'merah' ? 'red' : 'green' }};">
-        {{ $rekomendasi['anak']['teks'] }}
-    </span>
+<li>
+    <strong style="color: {{ $rekomendasi['anak']['status'] == 'merah' ? 'red' : 'green' }};">Jumlah Anak:</strong>
+    <span style="color: white;"> {{ $rekomendasi['anak']['teks'] }}</span>
 </li>
-<li><strong>Tablet Tambah Darah (TTD):</strong> 
-    <span style="color: {{ $rekomendasi['ttd']['status'] == 'merah' ? 'red' : 'green' }};">
-        {{ $rekomendasi['ttd']['teks'] }}
-    </span>
+<li>
+    <strong style="color: {{ $rekomendasi['ttd']['status'] == 'merah' ? 'red' : 'green' }};">Tablet Tambah Darah (TTD):</strong>
+    <span style="color: white;"> {{ $rekomendasi['ttd']['teks'] }}</span>
 </li>
-<li><strong>ANC (Pemeriksaan Kehamilan):</strong> 
-    <span style="color: {{ $rekomendasi['anc']['status'] == 'merah' ? 'red' : 'green' }};">
-        {{ $rekomendasi['anc']['teks'] }}
-    </span>
+<li>
+    <strong style="color: {{ $rekomendasi['anc']['status'] == 'merah' ? 'red' : 'green' }};">ANC (Pemeriksaan Kehamilan):</strong>
+    <span style="color: white;"> {{ $rekomendasi['anc']['teks'] }}</span>
 </li>
-<li><strong>Tekanan Darah:</strong> 
-    <span style="color: {{ $rekomendasi['td']['status'] == 'merah' ? 'red' : 'green' }};">
-        {{ $rekomendasi['td']['teks'] }}
-    </span>
+<li>
+    <strong style="color: {{ $rekomendasi['td']['status'] == 'merah' ? 'red' : 'green' }};">Tekanan Darah:</strong>
+    <span style="color: white;"> {{ $rekomendasi['td']['teks'] }}</span>
 </li>
-<li><strong>Kadar HB:</strong> 
-    <span style="color: {{ $rekomendasi['hb']['status'] == 'merah' ? 'red' : 'green' }};">
-        {{ $rekomendasi['hb']['teks'] }}
-    </span>
+<li>
+    <strong style="color: {{ $rekomendasi['hb']['status'] == 'merah' ? 'red' : 'green' }};">Kadar HB:</strong>
+    <span style="color: white;"> {{ $rekomendasi['hb']['teks'] }}</span>
 </li>
             </ul>
         </div>
