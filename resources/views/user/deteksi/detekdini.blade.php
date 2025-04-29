@@ -29,6 +29,13 @@
             color: white;
         }
     
+        .rekomendasi-box {
+            background: linear-gradient(to right, #6a7324, #8a7725);
+            padding: 15px;
+            border-radius: 10px;
+            color: white; 
+        }
+
         .hasil-judul {
             font-size: 20px;
             font-weight: bold;
@@ -280,9 +287,9 @@
     </div>
 
     @if ($rekomendasi)
-    <div class="rekomendasi-box" style="margin-top: 20px; background-color: #f8f9fa; border-left: 5px solid #007bff; padding: 15px 20px; border-radius: 8px;">
-            <h4 style="margin-bottom: 10px; color: #007bff;">Rekomendasi untuk Anda:</h4>
-            <ul style="list-style: none; padding-left: 0;">
+        <div class="rekomendasi-box">
+            <h3 class="hasil-judul">Rekomendasi untuk Anda:</h3>
+            <ul>
                 <li><strong>Usia Ibu:</strong> {{ $rekomendasi['usia'] }}</li>
                 <li><strong>LILA:</strong> {{ $rekomendasi['lila'] }}</li>
                 <li><strong>Tinggi Badan Ibu:</strong> {{ $rekomendasi['tb'] }}</li>
