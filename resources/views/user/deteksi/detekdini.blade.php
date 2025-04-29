@@ -198,7 +198,7 @@
   <div class="modal-box">
     <p style="color:rgb(43, 43, 43); font-family: 'Poppins', sans-serif;">
       <strong>Informasi:</strong><br>
-      Untuk melakukan deteksi dini stunting, Anda sudah pernah melakukan pemeriksaan selama kehamilan minimal pada trimester kedua kehamilan, agar prediksi yang dihasilkan akurat.
+      Untuk melakukan deteksi dini stunting, Anda sudah pernah melakukan pemeriksaan kehamilan (ANC) minimal pada kunjungan 3 di trimester kedua kehamilan, agar prediksi yang dihasilkan akurat.
     </p>
     <button onclick="closePopup()">Tutup</button>
   </div>
