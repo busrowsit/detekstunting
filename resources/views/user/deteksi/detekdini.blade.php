@@ -280,9 +280,9 @@
     </div>
 
     @if ($rekomendasi)
-        <div class="rekomendasi-box">
-            <h4>Rekomendasi untuk Anda:</h4>
-            <ul>
+    <div class="rekomendasi-box" style="margin-top: 20px; background-color: #f8f9fa; border-left: 5px solid #007bff; padding: 15px 20px; border-radius: 8px;">
+            <h4 style="margin-bottom: 10px; color: #007bff;">Rekomendasi untuk Anda:</h4>
+            <ul style="list-style: none; padding-left: 0;">
                 <li><strong>Usia Ibu:</strong> {{ $rekomendasi['usia'] }}</li>
                 <li><strong>LILA:</strong> {{ $rekomendasi['lila'] }}</li>
                 <li><strong>Tinggi Badan Ibu:</strong> {{ $rekomendasi['tb'] }}</li>
