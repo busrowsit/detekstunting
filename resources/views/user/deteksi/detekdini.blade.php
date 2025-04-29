@@ -172,8 +172,8 @@
                 @csrf
                 <div class="input-box">
                     <div class="step active">
-                        <input type="text" name="nama" value="{{ $user->nama_lengkap }}" required readonly style="background-color: #f5f5f5; cursor: not-allowed;">
-                        <input type="text" name="tanggal_lahir" value="{{ $user->tanggal_lahir }}" required readonly style="background-color: #f5f5f5; cursor: not-allowed;">
+                        <input type="text" name="nama" value="{{ $user->nama_lengkap }}" required readonly style="background-color:rgb(211, 211, 211); cursor: not-allowed;">
+                        <input type="text" name="tanggal_lahir" value="{{ $user->tanggal_lahir }}" required readonly style="background-color:rgb(211, 211, 211); cursor: not-allowed;">
 
                         <button class="btn btn-danger btn-sm" type="button" onclick="nextStep()">Lanjut</button>
                     </div>
@@ -187,7 +187,7 @@
                         </div>
                         <label>Usia Ibu Saat Hamil</label>
                         <div class="input-container">
-                            <input type="number" name="usia" id="inputUsia" required readonly>
+                            <input type="number" name="usia" id="inputUsia" required readonly style="background-color:rgb(211, 211, 211); cursor: not-allowed;">
                             <span class="kategori" id="kategoriUsia"></span>
                         </div>
                         <label>Berapa Ukuran Lingkar Lengan Atas (LILA) Anda?</label>
