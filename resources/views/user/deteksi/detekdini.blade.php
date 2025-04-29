@@ -210,14 +210,14 @@
                             <span class="top-text" id="kategoriTB"></span><br>
                         </div>
 
-                        <label>Jumlah Anak</label>
+                        <label>Berapa Jumlah Anak Anda?</label>
                         <div class="input-container">
                             <input type="number" name="jumlah_anak" required
                                 oninput="updateKategori(this, 'kategoriAnak')">
                             <span class="top-text" id="kategoriAnak"></span><br>
                         </div>
 
-                        <label>Jumlah Konsumsi TTD</label>
+                        <label>Berapa Jumlah Tablet Tambah Darah (TTD) yang Anda Konsumsi?</label>
                         <div class="input-container">
                             <input type="number" name="jumlah_ttd" required
                                 oninput="updateKategori(this, 'kategoriTTD')">
@@ -232,20 +232,20 @@
 
                 <div class="input-box">
                     <div class="step">
-                        <label>Jumlah Kunjungan ANC</label>
+                        <label>Berapa Jumlah Pemeriksaan Kehamilan yang Anda Lakukan ke Dokter/Bidan/Fasyankes?</label>
                         <div class="input-container">
                             <input type="number" name="jumlah_anc" required
                                 oninput="updateKategori(this, 'kategoriANC')">
                             <span class="top-text" id="kategoriANC"></span><br>
                         </div>
 
-                        <label>Tekanan Darah (misal: 120/80)</label>
+                        <label>Berapa Tekanan Darah Anda? (misal: 120/80)</label>
                         <div class="input-container">
                             <input type="text" name="tekanan_darah" required oninput="updateKategoriTekananDarah(this)">
                             <span class="top-text" id="kategoriTekananDarah"></span><br>
                         </div>
 
-                        <label>HB Ibu (g/dL)</label>
+                        <label>Berapa Kadar Hemoglobin (HB) Anda?</label>
                         <div class="input-container">
                             <input type="number" step="0.1" name="hb_ibu" required oninput="updateKategoriHB(this)">
                             <span class="top-text" id="kategoriHB"></span><br>
