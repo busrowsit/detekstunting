@@ -192,7 +192,7 @@
                         </div>
                         <label>Berapa Ukuran Lingkar Lengan Atas (LILA) Anda?</label>
                         <div class="input-container">
-                            <input type="number" step="0.1" name="lila" required oninput="updateKategori(this, 'kategoriLila')">
+                            <input type="number" step="0.1" name="lila" required oninput="updateKategori(this, 'kategoriLila')" placeholder="Dalam centimeter (cm)">
                             <span class="kategori" id="kategoriLila"></span>
                         </div>
 
@@ -204,23 +204,23 @@
 
                 <div class="input-box">
                     <div class="step">
-                        <label>Berapa Tinggi Badan (cm) Anda?</label>
+                        <label>Berapa Tinggi Badan Anda?</label>
                         <div class="input-container">
-                            <input type="number" step="0.1" name="tb_ibu" required oninput="updateKategori(this, 'kategoriTB')">
+                            <input type="number" step="0.1" name="tb_ibu" required oninput="updateKategori(this, 'kategoriTB')" placeholder="Dalam centimeter (cm)">
                             <span class="top-text" id="kategoriTB"></span><br>
                         </div>
 
                         <label>Berapa Jumlah Anak Anda?</label>
                         <div class="input-container">
                             <input type="number" name="jumlah_anak" required
-                                oninput="updateKategori(this, 'kategoriAnak')">
+                                oninput="updateKategori(this, 'kategoriAnak')" placeholder="Contoh: 1">
                             <span class="top-text" id="kategoriAnak"></span><br>
                         </div>
 
                         <label>Berapa Jumlah Tablet Tambah Darah (TTD) yang Anda Konsumsi?</label>
                         <div class="input-container">
                             <input type="number" name="jumlah_ttd" required
-                                oninput="updateKategori(this, 'kategoriTTD')">
+                                oninput="updateKategori(this, 'kategoriTTD')" placeholder="Contoh: 120">
                             <span class="top-text" id="kategoriTTD"></span><br>
                         </div>
 
@@ -234,20 +234,19 @@
                     <div class="step">
                         <label>Berapa Jumlah Pemeriksaan Kehamilan yang Anda Lakukan ke Dokter/Bidan/Fasyankes?</label>
                         <div class="input-container">
-                            <input type="number" name="jumlah_anc" required
-                                oninput="updateKategori(this, 'kategoriANC')">
+                            <input type="number" name="jumlah_anc" required oninput="updateKategori(this, 'kategoriANC')" placeholder="Contoh: 6">
                             <span class="top-text" id="kategoriANC"></span><br>
                         </div>
 
-                        <label>Berapa Tekanan Darah Anda? (misal: 120/80)</label>
+                        <label>Berapa Tekanan Darah Anda?</label>
                         <div class="input-container">
-                            <input type="text" name="tekanan_darah" required oninput="updateKategoriTekananDarah(this)">
+                            <input type="text" name="tekanan_darah" required oninput="updateKategoriTekananDarah(this)" placeholder="Contoh: 120/80">
                             <span class="top-text" id="kategoriTekananDarah"></span><br>
                         </div>
 
                         <label>Berapa Kadar Hemoglobin (HB) Anda?</label>
                         <div class="input-container">
-                            <input type="number" step="0.1" name="hb_ibu" required oninput="updateKategoriHB(this)">
+                            <input type="number" step="0.1" name="hb_ibu" required oninput="updateKategoriHB(this)" placeholder="Contoh: 11">
                             <span class="top-text" id="kategoriHB"></span><br>
                         </div>
                         <button class="btn btn-danger btn-sm" style="background-color: red; color: white;" type="button"
