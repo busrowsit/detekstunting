@@ -278,7 +278,7 @@
       
         
         </div>
-        <img src="{{ asset('assets/img/8073548.png') }}" alt="Pumpkin" class="hero-img" style="width: auto; height: auto;">
+        <img src="{{ asset('assets/img/momandson.png') }}" alt="Pumpkin" class="hero-img" style="width: auto; height: auto;">
     </section>
 
     <footer class="footer">
