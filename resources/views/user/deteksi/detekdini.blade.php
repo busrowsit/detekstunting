@@ -172,8 +172,9 @@
                 @csrf
                 <div class="input-box">
                     <div class="step active">
-                        <input type="text" name="nama" value="{{ $user->nama_lengkap }}" required readonly>
-                        <input type="text" name="tanggal_lahir" value="{{ $user->tanggal_lahir }}" required readonly>
+                        <input type="text" name="nama" value="{{ $user->nama_lengkap }}" required readonly style="background-color: #f5f5f5; cursor: not-allowed;">
+                        <input type="text" name="tanggal_lahir" value="{{ $user->tanggal_lahir }}" required readonly style="background-color: #f5f5f5; cursor: not-allowed;">
+
                         <button class="btn btn-danger btn-sm" type="button" onclick="nextStep()">Lanjut</button>
                     </div>
                 </div>
@@ -189,7 +190,7 @@
                             <input type="number" name="usia" id="inputUsia" required readonly>
                             <span class="kategori" id="kategoriUsia"></span>
                         </div>
-                        <label>Lingkar Lengan Atas (cm)</label>
+                        <label>Berapa Ukuran Lingkar Lengan Atas (LILA) Anda?</label>
                         <div class="input-container">
                             <input type="number" step="0.1" name="lila" required oninput="updateKategori(this, 'kategoriLila')">
                             <span class="kategori" id="kategoriLila"></span>
@@ -203,7 +204,7 @@
 
                 <div class="input-box">
                     <div class="step">
-                        <label>Tinggi Badan Ibu (cm)</label>
+                        <label>Berapa Tinggi Badan (cm) Anda?</label>
                         <div class="input-container">
                             <input type="number" step="0.1" name="tb_ibu" required oninput="updateKategori(this, 'kategoriTB')">
                             <span class="top-text" id="kategoriTB"></span><br>
