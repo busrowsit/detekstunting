@@ -285,11 +285,11 @@
             selama kehamilan dan kunjungi fasilitas kesehatan jika Anda mengalami masalah kesehatan.
         </p>
     </div>
-
+    <br>
     @if ($rekomendasi)
         <div class="rekomendasi-box">
             <h3 class="hasil-judul">Rekomendasi untuk Anda:</h3>
-            <ul>
+            <ul style="list-style: none; padding-left: 0; margin: 0;">
                 <li><strong>Usia Ibu:</strong> {{ $rekomendasi['usia'] }}</li>
                 <li><strong>LILA:</strong> {{ $rekomendasi['lila'] }}</li>
                 <li><strong>Tinggi Badan Ibu:</strong> {{ $rekomendasi['tb'] }}</li>
