@@ -192,14 +192,18 @@
         </nav>
     </header>
 
-    <!-- Modal Pop-up -->
+
+<!-- Modal Pop-up -->
 <div id="popupModal" class="modal-overlay" style="display: none;">
   <div class="modal-box">
-    <p><strong>Informasi:</strong><br>
-    Untuk melakukan deteksi dini stunting, Anda sudah pernah melakukan pemeriksaan selama kehamilan minimal pada trimester kedua kehamilan, agar prediksi yang dihasilkan akurat.</p>
+    <p style="color:rgb(43, 43, 43); font-family: 'Poppins', sans-serif;">
+      <strong>Informasi:</strong><br>
+      Untuk melakukan deteksi dini stunting, Anda sudah pernah melakukan pemeriksaan selama kehamilan minimal pada trimester kedua kehamilan, agar prediksi yang dihasilkan akurat.
+    </p>
     <button onclick="closePopup()">Tutup</button>
   </div>
 </div>
+
 
     <section id="main" class="hero">
         <div class="hero-content">
@@ -361,9 +365,6 @@
         </div>
     @endif
 @endif
-
-        
-      
         
         </div>
         <img src="{{ asset('assets/img/momandson.png') }}" alt="Pumpkin" class="hero-img" style="width: auto; height: auto;">
