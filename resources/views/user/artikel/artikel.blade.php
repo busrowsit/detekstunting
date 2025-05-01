@@ -120,28 +120,15 @@ $result = $conn->query($sql);
     <!-- HERO SECTION -->
    
     <section id="artikel" class="scrollable-section">
-        <main class="artikel-container">
-            <h1 class="artikel-judul">{{ $artikel->judul }}</h1>
-            <p class="artikel-tanggal">Dipublikasikan pada: {{ $artikel->tanggal }}</p>            
-        <img src="{{ asset($artikel->gambar) }}" alt="{{ $artikel->judul }}"  class="artikel-gambar">
-        <article class="artikel-isi">
-        <?php
-        $paragraf = explode('.',  $artikel->deskripsi); // Pisahkan berdasarkan titik
-        $output = '';
-        foreach ($paragraf as $index => $kalimat) {
-            if (!empty(trim($kalimat))) {
-                $output .= trim($kalimat) . '. '; // Tambahkan titik kembali
-            }
-            if (($index + 1) % 3 == 0) {
-                echo "<p>$output</p>";
-                $output = '';
-            }
-        }
-        if (!empty($output)) {
-            echo "<p>$output</p>"; // Cetak sisa paragraf jika ada
-        }
-        ?>
-    </article>
+    <main class="artikel-container">
+        <h1 class="artikel-judul">{{ $artikel->judul }}</h1>
+        <p class="artikel-tanggal">Dipublikasikan pada: {{ $artikel->tanggal }}</p>
+        <img src="{{ asset($artikel->gambar) }}" alt="{{ $artikel->judul }}" class="artikel-gambar">
+
+        {{-- Tampilkan deskripsi sesuai format asli dari textarea --}}
+        <article class="artikel-isi" style="white-space: pre-line;">
+            {{ $artikel->deskripsi }}
+        </article>
     </main>
     <h2 class="section-title">Artikel tentang Stunting</h2><br>
         <div class="scroll-wrapper">
