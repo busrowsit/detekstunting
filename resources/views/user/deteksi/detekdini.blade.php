@@ -217,6 +217,7 @@
 .rekomendasi-item {
     display: flex;
     align-items: center;
+    margin: 0;
     margin-bottom: 2px;
     gap: 5px; /* jarak antara label dan input */
 }
