@@ -202,8 +202,6 @@
     width: 100%;
     font-weight: 500;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    resize: vertical;  /* Agar pengguna bisa mengubah tinggi textarea */
-    min-height: 100px;  /* Menentukan tinggi minimal */
 }
 
 .textarea-hijau {
@@ -215,8 +213,6 @@
     width: 100%;
     font-weight: 500;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    resize: vertical;  /* Agar pengguna bisa mengubah tinggi textarea */
-    min-height: 100px;  /* Menentukan tinggi minimal */
 }
 
 .rekomendasi-item {
