@@ -138,7 +138,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #f5f5f5;
+  background-color: rgba(0, 0, 0, 0.7); /* latar belakang gelap */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -175,11 +175,13 @@
 
 /* Rekomendasi box */
 .rekomendasi-box {
-  background-color: #f5f5f5;
+  background-color: #ffffff !important;
   border-radius: 10px;
   padding: 20px;
   margin-top: 20px;
+  color: #000; /* teks jadi hitam jika masih ada yang putih */
 }
+
 
 /* Tombol tutup */
 .modal-box button {
