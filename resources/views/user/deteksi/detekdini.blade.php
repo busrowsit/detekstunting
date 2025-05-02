@@ -219,8 +219,9 @@
                 <div class="input-box">
                     <div class="step active">
                     <p class="top-text" style="font-size: 25px;">INFORMASI</p>
-                    <label>Untuk melakukan deteksi dini stunting, Anda harus sudah pernah melakukan pemeriksaan kehamilan (ANC) minimal pada kunjungan 3 di trimester kedua kehamilan, agar prediksi yang dihasilkan akurat.</label>
-                    <br><em></em>
+                    <label style="display: block; margin-bottom: 15px;">
+                        Untuk melakukan deteksi dini stunting, Anda harus sudah pernah melakukan pemeriksaan kehamilan (ANC) minimal pada kunjungan 3 di trimester kedua kehamilan, agar prediksi yang dihasilkan akurat.
+                    </label>
                         <button class="btn btn-danger btn-sm" type="button" onclick="nextStep()">Lanjut</button>
                     </div>
                 </div>
