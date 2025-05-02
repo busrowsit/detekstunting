@@ -399,9 +399,20 @@
                             <span style="color: #333;">{{ $rekomendasi['td']['teks'] }}</span>
                         </li>
                         <li>
-                            <strong style="color: {{ $rekomendasi['hb']['status'] == 'merah' ? '#dc3545' : '#28a745' }};">Kadar HB:</strong>
-                            <span style="color: #333;">{{ $rekomendasi['hb']['teks'] }}</span>
-                        </li>
+                            <strong style="color: #333;">Kadar HB:</strong>
+                                <input 
+                                    type="text" 
+                                    value="{{ $rekomendasi['hb']['teks'] }}" 
+                                    readonly 
+                                    style="
+                                        border: 1px solid {{ $rekomendasi['hb']['status'] == 'merah' ? '#dc3545' : '#28a745' }}; 
+                                        background-color: {{ $rekomendasi['hb']['status'] == 'merah' ? '#f8d7da' : '#d4edda' }}; 
+                                        color: #333; 
+                                        padding: 5px 10px; 
+                                        border-radius: 5px; 
+                                        width: 100%;
+                                    ">
+                            </li>
                     </ul>
                 </div>
                 @endif
