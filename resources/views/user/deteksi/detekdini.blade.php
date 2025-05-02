@@ -218,9 +218,21 @@
                 @csrf
                 <div class="input-box">
                     <div class="step active">
-                        <input type="text" name="nama" value="{{ $user->nama_lengkap }}" required readonly style="background-color:rgb(155, 155, 155); cursor: not-allowed;">
-                        <input type="text" name="tanggal_lahir" value="{{ $user->tanggal_lahir }}" required readonly style="background-color:rgb(155, 155, 155); cursor: not-allowed;">
+                    <h2 class="big-title">INFORMASI</h2>
+                    <label>Untuk melakukan deteksi dini stunting, Anda harus sudah pernah melakukan pemeriksaan kehamilan (ANC) minimal pada kunjungan 3 di trimester kedua kehamilan, agar prediksi yang dihasilkan akurat.</label>
 
+                        <button class="btn btn-danger btn-sm" type="button" onclick="nextStep()">Lanjut</button>
+                    </div>
+                </div>
+
+                
+                <div class="input-box">
+                    <div class="step">
+                    <input type="text" name="nama" value="{{ $user->nama_lengkap }}" required readonly style="background-color:rgb(155, 155, 155); cursor: not-allowed;">
+                    <input type="text" name="tanggal_lahir" value="{{ $user->tanggal_lahir }}" required readonly style="background-color:rgb(155, 155, 155); cursor: not-allowed;">
+
+                        <button class="btn btn-danger btn-sm" style="background-color: red; color: white;" type="button"
+                            onclick="prevStep()">Kembali</button>
                         <button class="btn btn-danger btn-sm" type="button" onclick="nextStep()">Lanjut</button>
                     </div>
                 </div>
