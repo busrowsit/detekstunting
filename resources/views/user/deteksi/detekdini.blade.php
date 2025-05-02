@@ -462,7 +462,7 @@
 
                         <!-- Kolom Gambar -->
             <div style="flex: 1; display: flex; align-items: center; justify-content: center;">
-                <img src="{{ asset('assets/img/hasil.png') }}" alt="Ilustrasi Hasil" style="width: 65%; height: 65%; object-fit: cover; border-radius: 10px;">
+                <img src="{{ asset('assets/img/hasil.png') }}" alt="Ilustrasi Hasil" style="width: 65%; height: 65%; border-radius: 10px;">
             </div>
         </div> <!-- akhir modal-content -->
 
