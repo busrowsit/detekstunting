@@ -195,29 +195,32 @@
 
 .input-merah {
     background-color: #dc3545;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 8px;
-    border: none;
+    color: #fff;
+    border: 2px solid #a71d2a;
+    border-radius: 10px;
+    padding: 10px 15px;
     width: 100%;
-    font-weight: 500;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    resize: none;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .input-hijau {
     background-color: #28a745;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 8px;
-    border: none;
+    color: #fff;
+    border: 2px solid #1e7e34;
+    border-radius: 10px;
+    padding: 10px 15px;
     width: 100%;
-    font-weight: 500;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    resize: none;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
+
 .rekomendasi-item {
     display: flex;
     align-items: center;
-    margin-bottom: 8px;
+    margin-bottom: 4px;
     gap: 5px; /* jarak antara label dan input */
 }
         </style>
@@ -401,56 +404,56 @@
                         <li>
                         <div class="rekomendasi-item">
                             <strong style="color: #333;">Usia Ibu:</strong>
-                            <input type="text" value="{{ $rekomendasi['usia']['teks'] }}" readonly
+                            <textarea  type="text" value="{{ $rekomendasi['usia']['teks'] }}" readonly
                                 class="{{ $rekomendasi['usia']['status'] == 'merah' ? 'input-merah' : 'input-hijau' }}">
                         </div>
                         </li>
                         <li>
                         <div class="rekomendasi-item">
                             <strong style="color: #333;">LILA:</strong>
-                            <input type="text" value="{{ $rekomendasi['lila']['teks'] }}" readonly
+                            <textarea  type="text" value="{{ $rekomendasi['lila']['teks'] }}" readonly
                                 class="{{ $rekomendasi['lila']['status'] == 'merah' ? 'input-merah' : 'input-hijau' }}">
                         </div>
                         </li>
                         <li>
                         <div class="rekomendasi-item">
                             <strong style="color: #333;">Tinggi Badan Ibu:</strong>
-                            <input type="text" value="{{ $rekomendasi['tb']['teks'] }}" readonly
+                            <textarea  type="text" value="{{ $rekomendasi['tb']['teks'] }}" readonly
                                     class="{{ $rekomendasi['tb']['status'] == 'merah' ? 'input-merah' : 'input-hijau' }}">
                         </div>
                         </li>
                         <li>
                         <div class="rekomendasi-item">
                             <strong style="color: #333;">Jumlah Anak:</strong>
-                            <input type="text" value="{{ $rekomendasi['anak']['teks'] }}" readonly
+                            <textarea  type="text" value="{{ $rekomendasi['anak']['teks'] }}" readonly
                                     class="{{ $rekomendasi['anak']['status'] == 'merah' ? 'input-merah' : 'input-hijau' }}">
                         </div>
                         </li>
                         <li>
                         <div class="rekomendasi-item">
                             <strong style="color: #333;">Tablet Tambah Darah (TTD):</strong>
-                            <input type="text" value="{{ $rekomendasi['ttd']['teks'] }}" readonly
+                            <textarea  type="text" value="{{ $rekomendasi['ttd']['teks'] }}" readonly
                                 class="{{ $rekomendasi['ttd']['status'] == 'merah' ? 'input-merah' : 'input-hijau' }}">
                         </div>
                         </li>
                         <li>
                         <div class="rekomendasi-item">
                             <strong style="color: #333;">ANC (Pemeriksaan Kehamilan):</strong>
-                            <input type="text" value="{{ $rekomendasi['anc']['teks'] }}" readonly
+                            <textarea  type="text" value="{{ $rekomendasi['anc']['teks'] }}" readonly
                                     class="{{ $rekomendasi['anc']['status'] == 'merah' ? 'input-merah' : 'input-hijau' }}">
                         </div>
                         </li>
                         <li>
                         <div class="rekomendasi-item">
                             <strong style="color: #333;">Tekanan Darah:</strong>
-                            <input type="text" value="{{ $rekomendasi['td']['teks'] }}" readonly
+                            <textarea  type="text" value="{{ $rekomendasi['td']['teks'] }}" readonly
                                     class="{{ $rekomendasi['td']['status'] == 'merah' ? 'input-merah' : 'input-hijau' }}">
                         </div>
                         </li>
                         <li>
                             <div class="rekomendasi-item">
                             <strong style="color: #333;">Kadar HB:</strong>
-                            <input type="text" value="{{ $rekomendasi['hb']['teks'] }}" readonly
+                            <textarea  type="text" value="{{ $rekomendasi['hb']['teks'] }}" readonly
                                     class="{{ $rekomendasi['hb']['status'] == 'merah' ? 'input-merah' : 'input-hijau' }}">
                             </div>
                         </li>
