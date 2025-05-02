@@ -405,12 +405,14 @@
                                     value="{{ $rekomendasi['hb']['teks'] }}" 
                                     readonly 
                                     style="
-                                        border: 1px solid {{ $rekomendasi['hb']['status'] == 'merah' ? '#dc3545' : '#28a745' }}; 
-                                        background-color: {{ $rekomendasi['hb']['status'] == 'merah' ? '#f8d7da' : '#d4edda' }}; 
-                                        color: #333; 
-                                        padding: 5px 10px; 
-                                        border-radius: 5px; 
-                                        width: 100%;
+        background-color: {{ $rekomendasi['hb']['status'] == 'merah' ? '#dc3545' : '#28a745' }};
+        color: white;
+        padding: 10px 20px;
+        border-radius: 8px;
+        border: none;
+        width: 100%;
+        font-weight: 500;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
                                     ">
                             </li>
                     </ul>
