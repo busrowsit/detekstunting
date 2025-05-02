@@ -138,7 +138,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.7); /* latar belakang gelap */
+  background-color: #f5f5f5;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -151,7 +151,7 @@
   padding: 30px;
   border-radius: 10px;
   width: 90%;
-  max-width: 600px;
+  max-width: 90%;
   color: #000; /* teks hitam */
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
   overflow-y: auto;
