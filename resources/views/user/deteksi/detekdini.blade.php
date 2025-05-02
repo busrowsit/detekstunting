@@ -192,19 +192,6 @@
         </nav>
     </header>
 
-
-<!-- Modal Pop-up -->
-<div id="popupModal" class="modal-overlay" style="display: none;">
-  <div class="modal-box">
-    <p style="color:rgb(43, 43, 43); font-family: 'Poppins', sans-serif;">
-      <strong>Informasi:</strong><br>
-      Untuk melakukan deteksi dini stunting, Anda sudah pernah melakukan pemeriksaan kehamilan (ANC) minimal pada kunjungan 3 di trimester kedua kehamilan, agar prediksi yang dihasilkan akurat.
-    </p>
-    <button onclick="closePopup()">Tutup</button>
-  </div>
-</div>
-
-
     <section id="main" class="hero">
         <div class="hero-content">
             <p class="top-text">#AYO DETEKSI STUNTING SEKARANG</p>
@@ -218,7 +205,7 @@
                 @csrf
                 <div class="input-box">
                     <div class="step active">
-                    <p class="top-text" style="font-size: 25px;">INFORMASI</p>
+                    <p class="top-text" style="font-size: 25px;">INFORMASI PENTING!</p>
                     <label style="display: block; margin-bottom: 15px;">
                         Untuk melakukan deteksi dini stunting, Anda harus sudah pernah melakukan pemeriksaan kehamilan (ANC) minimal pada kunjungan 3 di trimester kedua kehamilan, agar prediksi yang dihasilkan akurat.
                     </label>
@@ -315,6 +302,14 @@
                 </div>
             </form>
             <br>
+
+
+
+
+
+
+            
+
             @if (session('hasil_deteksi'))
     @php
         $hasil_prediksi = session('hasil_deteksi');
@@ -322,61 +317,66 @@
         $rekomendasi = session('rekomendasi');
     @endphp
 
-    <div class="hasil-deteksi">
-        <h3 class="hasil-judul">Hasil Deteksi Stunting</h3>
-        <p>
-            <strong>Prediksi Kelahiran Anak Anda:</strong>
-            <span class="{{ $warna }}" style="font-size: 28px; font-weight: bold; text-transform: uppercase;">
-                {{ $hasil_prediksi }}
-            </span>
-        </p>
-        <p class="hasil-catatan">
-            <strong>NB:</strong>
-            <em>Sistem DetekStunting dapat melakukan kesalahan dalam prediksi.</em> 
-            Hasil di atas hanya sebagai analisis awal. Selalu lakukan pemeriksaan kesehatan rutin 
-            selama kehamilan dan kunjungi fasilitas kesehatan jika Anda mengalami masalah kesehatan.
-        </p>
-    </div>
-    <br>
-    @if ($rekomendasi)
-        <div class="rekomendasi-box">
-            <h3 class="hasil-judul">Rekomendasi untuk Anda:</h3>
-            <ul style="list-style: none; padding-left: 0; margin: 0;">
-            <li>
-    <strong style="color: {{ $rekomendasi['usia']['status'] == 'merah' ? '#dc3545' : '#28a745' }};">Usia Ibu:</strong>
-    <span style="color: white;">{{ $rekomendasi['usia']['teks'] }}</span>
-</li>
-<li>
-    <strong style="color: {{ $rekomendasi['lila']['status'] == 'merah' ? '#dc3545' : '#28a745' }};">LILA:</strong>
-    <span style="color: white;">{{ $rekomendasi['lila']['teks'] }}</span>
-</li>
-<li>
-    <strong style="color: {{ $rekomendasi['tb']['status'] == 'merah' ? '#dc3545' : '#28a745' }};">Tinggi Badan Ibu:</strong>
-    <span style="color: white;">{{ $rekomendasi['tb']['teks'] }}</span>
-</li>
-<li>
-    <strong style="color: {{ $rekomendasi['anak']['status'] == 'merah' ? '#dc3545' : '#28a745' }};">Jumlah Anak:</strong>
-    <span style="color: white;">{{ $rekomendasi['anak']['teks'] }}</span>
-</li>
-<li>
-    <strong style="color: {{ $rekomendasi['ttd']['status'] == 'merah' ? '#dc3545' : '#28a745' }};">Tablet Tambah Darah (TTD):</strong>
-    <span style="color: white;">{{ $rekomendasi['ttd']['teks'] }}</span>
-</li>
-<li>
-    <strong style="color: {{ $rekomendasi['anc']['status'] == 'merah' ? '#dc3545' : '#28a745' }};">ANC (Pemeriksaan Kehamilan):</strong>
-    <span style="color: white;">{{ $rekomendasi['anc']['teks'] }}</span>
-</li>
-<li>
-    <strong style="color: {{ $rekomendasi['td']['status'] == 'merah' ? '#dc3545' : '#28a745' }};">Tekanan Darah:</strong>
-    <span style="color: white;">{{ $rekomendasi['td']['teks'] }}</span>
-</li>
-<li>
-    <strong style="color: {{ $rekomendasi['hb']['status'] == 'merah' ? '#dc3545' : '#28a745' }};">Kadar HB:</strong>
-    <span style="color: white;">{{ $rekomendasi['hb']['teks'] }}</span>
-</li>
-            </ul>
+    <!-- Modal Pop-up -->
+    <div id="popupModal" class="modal-overlay" style="display: none;">
+        <div class="modal-box">
+            <h3 class="hasil-judul">Hasil Deteksi Stunting</h3>
+            <p>
+                <strong>Prediksi Kelahiran Anak Anda:</strong>
+                <span class="{{ $warna }}" style="font-size: 28px; font-weight: bold; text-transform: uppercase;">
+                    {{ $hasil_prediksi }}
+                </span>
+            </p>
+            <p class="hasil-catatan">
+                <strong>NB:</strong>
+                <em>Sistem DetekStunting dapat melakukan kesalahan dalam prediksi.</em> 
+                Hasil di atas hanya sebagai analisis awal. Selalu lakukan pemeriksaan kesehatan rutin 
+                selama kehamilan dan kunjungi fasilitas kesehatan jika Anda mengalami masalah kesehatan.
+            </p>
+
+            @if ($rekomendasi)
+            <div class="rekomendasi-box">
+                <h3 class="hasil-judul">Rekomendasi untuk Anda:</h3>
+                <ul style="list-style: none; padding-left: 0; margin: 0;">
+                    <li>
+                        <strong style="color: {{ $rekomendasi['usia']['status'] == 'merah' ? '#dc3545' : '#28a745' }};">Usia Ibu:</strong>
+                        <span style="color: white;">{{ $rekomendasi['usia']['teks'] }}</span>
+                    </li>
+                    <li>
+                        <strong style="color: {{ $rekomendasi['lila']['status'] == 'merah' ? '#dc3545' : '#28a745' }};">LILA:</strong>
+                        <span style="color: white;">{{ $rekomendasi['lila']['teks'] }}</span>
+                    </li>
+                    <li>
+                        <strong style="color: {{ $rekomendasi['tb']['status'] == 'merah' ? '#dc3545' : '#28a745' }};">Tinggi Badan Ibu:</strong>
+                        <span style="color: white;">{{ $rekomendasi['tb']['teks'] }}</span>
+                    </li>
+                    <li>
+                        <strong style="color: {{ $rekomendasi['anak']['status'] == 'merah' ? '#dc3545' : '#28a745' }};">Jumlah Anak:</strong>
+                        <span style="color: white;">{{ $rekomendasi['anak']['teks'] }}</span>
+                    </li>
+                    <li>
+                        <strong style="color: {{ $rekomendasi['ttd']['status'] == 'merah' ? '#dc3545' : '#28a745' }};">Tablet Tambah Darah (TTD):</strong>
+                        <span style="color: white;">{{ $rekomendasi['ttd']['teks'] }}</span>
+                    </li>
+                    <li>
+                        <strong style="color: {{ $rekomendasi['anc']['status'] == 'merah' ? '#dc3545' : '#28a745' }};">ANC (Pemeriksaan Kehamilan):</strong>
+                        <span style="color: white;">{{ $rekomendasi['anc']['teks'] }}</span>
+                    </li>
+                    <li>
+                        <strong style="color: {{ $rekomendasi['td']['status'] == 'merah' ? '#dc3545' : '#28a745' }};">Tekanan Darah:</strong>
+                        <span style="color: white;">{{ $rekomendasi['td']['teks'] }}</span>
+                    </li>
+                    <li>
+                        <strong style="color: {{ $rekomendasi['hb']['status'] == 'merah' ? '#dc3545' : '#28a745' }};">Kadar HB:</strong>
+                        <span style="color: white;">{{ $rekomendasi['hb']['teks'] }}</span>
+                    </li>
+                </ul>
+            </div>
+            @endif
+
+            <button onclick="closePopup()">Tutup</button>
         </div>
-    @endif
+    </div>
 @endif
         
         </div>
@@ -490,9 +490,16 @@
         window.onload = function() {
   document.getElementById("popupModal").style.display = "flex";
 }
-function closePopup() {
-  document.getElementById("popupModal").style.display = "none";
-}
+  function closePopup() {
+    document.getElementById("popupModal").style.display = "none";
+  }
+
+  // Cek apakah hasil deteksi ada (pakai blade)
+  @if(session('hasil_deteksi'))
+    window.onload = function() {
+      document.getElementById("popupModal").style.display = "flex";
+    };
+  @endif
         </script>
 </body>
 </html>
