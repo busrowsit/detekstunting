@@ -366,7 +366,6 @@
                     </div>
                 </div>
             </form>
-            <br>
 
             @if (session('hasil_deteksi'))
 @php
