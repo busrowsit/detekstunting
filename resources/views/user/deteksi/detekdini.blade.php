@@ -149,7 +149,7 @@
   background-color: #fff; /* putih */
   padding: 30px;
   border-radius: 10px;
-  width: 70%;
+  width: 85%;
   max-width: 85%;
   color: #000; /* teks hitam */
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
