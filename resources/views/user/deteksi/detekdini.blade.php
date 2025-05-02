@@ -30,7 +30,6 @@
         }
     
         .rekomendasi-box {
-            background: linear-gradient(to right, #6a7324, #8a7725);
             padding: 15px;
             border-radius: 10px;
             color: white; 
@@ -138,7 +137,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.7); /* latar belakang gelap */
+  background-color: rgba(0, 0, 0, 0.3); /* latar belakang gelap */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -150,8 +149,8 @@
   background-color: #fff; /* putih */
   padding: 30px;
   border-radius: 10px;
-  width: 90%;
-  max-width: 90%;
+  width: 70%;
+  max-width: 70%;
   color: #000; /* teks hitam */
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
   overflow-y: auto;
