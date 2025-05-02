@@ -217,8 +217,8 @@
 .rekomendasi-item {
     display: flex;
     align-items: center;
-    margin-bottom: 16px;
-    gap: 10px; /* jarak antara label dan input */
+    margin-bottom: 8px;
+    gap: 5px; /* jarak antara label dan input */
 }
         </style>
     <link rel="stylesheet" href="{{ asset('user-style.css') }}">
