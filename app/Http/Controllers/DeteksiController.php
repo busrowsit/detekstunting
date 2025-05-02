@@ -146,7 +146,7 @@ class DeteksiController extends Controller
             ],
             'tb' => [
                 'teks' => ($kategori_tb == 'Pendek') 
-                    ? 'Tinggi badan Anda termasuk pendek, perhatikan asupan gizi sejak remaja dan selama kehamilan.' 
+                    ? 'Tinggi badan Anda termasuk pendek, perhatikan asupan gizi selama kehamilan.' 
                     : 'Tinggi badan Anda dalam rentang ideal.',
                 'status' => ($kategori_tb == 'Pendek') ? 'merah' : 'hijau'
             ],
