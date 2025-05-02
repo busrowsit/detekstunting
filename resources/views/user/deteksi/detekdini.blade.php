@@ -192,6 +192,34 @@
   border-radius: 6px;
   cursor: pointer;
 }
+
+.input-merah {
+    background-color: #dc3545;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    width: 100%;
+    font-weight: 500;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.input-hijau {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    width: 100%;
+    font-weight: 500;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.rekomendasi-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+    gap: 10px; /* jarak antara label dan input */
+}
         </style>
     <link rel="stylesheet" href="{{ asset('user-style.css') }}">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -371,50 +399,61 @@
                     <h3 class="hasil-judul">Rekomendasi untuk Anda:</h3>
                     <ul style="list-style: none; padding-left: 0; margin: 0;">
                         <li>
-                            <strong style="color: {{ $rekomendasi['usia']['status'] == 'merah' ? '#dc3545' : '#28a745' }};">Usia Ibu:</strong>
-                            <span style="color: #333;">{{ $rekomendasi['usia']['teks'] }}</span>
+                        <div class="rekomendasi-item">
+                            <strong style="color: #333;">Usia Ibu:</strong>
+                            <input type="text" value="{{ $rekomendasi['usia']['teks'] }}" readonly
+                                class="{{ $rekomendasi['usia']['status'] == 'merah' ? 'input-merah' : 'input-hijau' }}">
+                        </div>
                         </li>
                         <li>
-                            <strong style="color: {{ $rekomendasi['lila']['status'] == 'merah' ? '#dc3545' : '#28a745' }};">LILA:</strong>
-                            <span style="color: #333;">{{ $rekomendasi['lila']['teks'] }}</span>
+                        <div class="rekomendasi-item">
+                            <strong style="color: #333;">LILA:</strong>
+                            <input type="text" value="{{ $rekomendasi['lila']['teks'] }}" readonly
+                                class="{{ $rekomendasi['lila']['status'] == 'merah' ? 'input-merah' : 'input-hijau' }}">
+                        </div>
                         </li>
                         <li>
-                            <strong style="color: {{ $rekomendasi['tb']['status'] == 'merah' ? '#dc3545' : '#28a745' }};">Tinggi Badan Ibu:</strong>
-                            <span style="color: #333;">{{ $rekomendasi['tb']['teks'] }}</span>
+                        <div class="rekomendasi-item">
+                            <strong style="color: #333;">Tinggi Badan Ibu:</strong>
+                            <input type="text" value="{{ $rekomendasi['tb']['teks'] }}" readonly
+                                    class="{{ $rekomendasi['anc']['tb'] == 'merah' ? 'input-merah' : 'input-hijau' }}">
+                        </div>
                         </li>
                         <li>
-                            <strong style="color: {{ $rekomendasi['anak']['status'] == 'merah' ? '#dc3545' : '#28a745' }};">Jumlah Anak:</strong>
-                            <span style="color: #333;">{{ $rekomendasi['anak']['teks'] }}</span>
+                        <div class="rekomendasi-item">
+                            <strong style="color: #333;">Jumlah Anak:</strong>
+                            <input type="text" value="{{ $rekomendasi['anak']['teks'] }}" readonly
+                                    class="{{ $rekomendasi['anak']['status'] == 'merah' ? 'input-merah' : 'input-hijau' }}">
+                        </div>
                         </li>
                         <li>
-                            <strong style="color: {{ $rekomendasi['ttd']['status'] == 'merah' ? '#dc3545' : '#28a745' }};">Tablet Tambah Darah (TTD):</strong>
-                            <span style="color: #333;">{{ $rekomendasi['ttd']['teks'] }}</span>
+                        <div class="rekomendasi-item">
+                            <strong style="color: #333;">Tablet Tambah Darah (TTD):</strong>
+                            <input type="text" value="{{ $rekomendasi['ttd']['teks'] }}" readonly
+                                class="{{ $rekomendasi['ttd']['status'] == 'merah' ? 'input-merah' : 'input-hijau' }}">
+                        </div>
                         </li>
                         <li>
-                            <strong style="color: {{ $rekomendasi['anc']['status'] == 'merah' ? '#dc3545' : '#28a745' }};">ANC (Pemeriksaan Kehamilan):</strong>
-                            <span style="color: #333;">{{ $rekomendasi['anc']['teks'] }}</span>
+                        <div class="rekomendasi-item">
+                            <strong style="color: #333;">ANC (Pemeriksaan Kehamilan):</strong>
+                            <input type="text" value="{{ $rekomendasi['anc']['teks'] }}" readonly
+                                    class="{{ $rekomendasi['anc']['status'] == 'merah' ? 'input-merah' : 'input-hijau' }}">
+                        </div>
                         </li>
                         <li>
-                            <strong style="color: {{ $rekomendasi['td']['status'] == 'merah' ? '#dc3545' : '#28a745' }};">Tekanan Darah:</strong>
-                            <span style="color: #333;">{{ $rekomendasi['td']['teks'] }}</span>
+                        <div class="rekomendasi-item">
+                            <strong style="color: #333;">Tekanan Darah:</strong>
+                            <input type="text" value="{{ $rekomendasi['td']['teks'] }}" readonly
+                                    class="{{ $rekomendasi['td']['status'] == 'merah' ? 'input-merah' : 'input-hijau' }}">
+                        </div>
                         </li>
                         <li>
+                            <div class="rekomendasi-item">
                             <strong style="color: #333;">Kadar HB:</strong>
-                                <input 
-                                    type="text" 
-                                    value="{{ $rekomendasi['hb']['teks'] }}" 
-                                    readonly 
-                                    style="
-        background-color: {{ $rekomendasi['hb']['status'] == 'merah' ? '#dc3545' : '#28a745' }};
-        color: white;
-        padding: 10px 20px;
-        border-radius: 8px;
-        border: none;
-        width: 100%;
-        font-weight: 500;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-                                    ">
-                            </li>
+                            <input type="text" value="{{ $rekomendasi['hb']['teks'] }}" readonly
+                                    class="{{ $rekomendasi['hb']['status'] == 'merah' ? 'input-merah' : 'input-hijau' }}">
+                            </div>
+                        </li>
                     </ul>
                 </div>
                 @endif
