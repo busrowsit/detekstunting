@@ -131,29 +131,64 @@
             /* Biar bisa diklik */
         }
 
-        .modal-overlay {
+/* Modal overlay */
+.modal-overlay {
   position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background-color: rgba(0,0,0,0.5);
-  display: flex; align-items: center; justify-content: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* latar belakang gelap */
+  display: flex;
+  justify-content: center;
+  align-items: center;
   z-index: 9999;
 }
+
+/* Modal box */
 .modal-box {
-  background-color: white;
-  padding: 20px;
+  background-color: #fff; /* putih */
+  padding: 30px;
   border-radius: 10px;
   width: 90%;
-  max-width: 500px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  max-width: 600px;
+  color: #000; /* teks hitam */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  overflow-y: auto;
+  max-height: 90vh;
 }
+
+/* Judul */
+.hasil-judul {
+  font-size: 22px;
+  margin-bottom: 15px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Catatan */
+.hasil-catatan {
+  font-size: 14px;
+  color: #555;
+  margin-top: 20px;
+}
+
+/* Rekomendasi box */
+.rekomendasi-box {
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+/* Tombol tutup */
 .modal-box button {
-  margin-top: 15px;
-  background-color: #3490dc;
-  color: white;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
   border: none;
-  padding: 10px 15px;
-  border-radius: 5px;
+  color: #fff;
+  border-radius: 6px;
   cursor: pointer;
 }
         </style>
@@ -302,13 +337,6 @@
                 </div>
             </form>
             <br>
-
-
-
-
-
-
-            
 
             @if (session('hasil_deteksi'))
     @php
