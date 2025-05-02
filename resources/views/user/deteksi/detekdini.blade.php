@@ -349,8 +349,7 @@
 <!-- Modal Pop-up -->
 <div id="popupModal" class="modal-overlay" style="display: none;">
     <div class="modal-box">
-        <div class="modal-content" style="display: flex; gap: 20px; align-items: flex-start;">
-
+        <div class="modal-content" style="display: flex; gap: 20px; align-items: stretch; height: 100%;">
             <!-- Kolom Teks -->
             <div style="flex: 2;">
                 <h3 class="hasil-judul">Hasil Deteksi Stunting</h3>
@@ -410,7 +409,7 @@
 
                         <!-- Kolom Gambar -->
             <div style="flex: 1;">
-                <img src="{{ asset('assets/img/hasil.png') }}" alt="Ilustrasi Hasil" style="width: 100%; max-width: 250px; border-radius: 10px;">
+                <img src="{{ asset('assets/img/hasil.png') }}" alt="Ilustrasi Hasil" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
             </div>
         </div> <!-- akhir modal-content -->
 
