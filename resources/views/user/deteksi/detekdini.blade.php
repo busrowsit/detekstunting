@@ -409,7 +409,7 @@
 
                         <!-- Kolom Gambar -->
             <div style="flex: 1;">
-                <img src="{{ asset('assets/img/hasil.png') }}" alt="Ilustrasi Hasil" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
+                <img src="{{ asset('assets/img/hasil.png') }}" alt="Ilustrasi Hasil" style="width: 100%; height: 80%; object-fit: cover; border-radius: 10px;">
             </div>
         </div> <!-- akhir modal-content -->
 
