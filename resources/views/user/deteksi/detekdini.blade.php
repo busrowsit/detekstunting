@@ -416,7 +416,7 @@
                         <div class="rekomendasi-item">
                             <strong style="color: #333;">Tinggi Badan Ibu:</strong>
                             <input type="text" value="{{ $rekomendasi['tb']['teks'] }}" readonly
-                                    class="{{ $rekomendasi['anc']['tb'] == 'merah' ? 'input-merah' : 'input-hijau' }}">
+                                    class="{{ $rekomendasi['tb']['status'] == 'merah' ? 'input-merah' : 'input-hijau' }}">
                         </div>
                         </li>
                         <li>
