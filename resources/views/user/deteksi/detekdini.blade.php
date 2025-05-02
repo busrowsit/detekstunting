@@ -150,7 +150,7 @@
   padding: 30px;
   border-radius: 10px;
   width: 70%;
-  max-width: 70%;
+  max-width: 85%;
   color: #000; /* teks hitam */
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
   overflow-y: auto;
@@ -350,11 +350,6 @@
 <div id="popupModal" class="modal-overlay" style="display: none;">
     <div class="modal-box">
         <div class="modal-content" style="display: flex; gap: 20px; align-items: flex-start;">
-            
-            <!-- Kolom Gambar -->
-            <div style="flex: 1;">
-                <img src="{{ asset('assets/img/hasil.png') }}" alt="Ilustrasi Hasil" style="width: 100%; max-width: 250px; border-radius: 10px;">
-            </div>
 
             <!-- Kolom Teks -->
             <div style="flex: 2;">
@@ -413,6 +408,10 @@
                 @endif
             </div> <!-- akhir kolom teks -->
 
+                        <!-- Kolom Gambar -->
+            <div style="flex: 1;">
+                <img src="{{ asset('assets/img/hasil.png') }}" alt="Ilustrasi Hasil" style="width: 100%; max-width: 250px; border-radius: 10px;">
+            </div>
         </div> <!-- akhir modal-content -->
 
         <button onclick="closePopup()">Tutup</button>
