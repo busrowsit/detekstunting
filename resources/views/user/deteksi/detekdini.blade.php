@@ -340,73 +340,86 @@
             <br>
 
             @if (session('hasil_deteksi'))
-    @php
-        $hasil_prediksi = session('hasil_deteksi');
-        $warna = ($hasil_prediksi == "NORMAL") ? "normal" : "stunting";
-        $rekomendasi = session('rekomendasi');
-    @endphp
+@php
+    $hasil_prediksi = session('hasil_deteksi');
+    $warna = ($hasil_prediksi == "NORMAL") ? "normal" : "stunting";
+    $rekomendasi = session('rekomendasi');
+@endphp
 
-    <!-- Modal Pop-up -->
-    <div id="popupModal" class="modal-overlay" style="display: none;">
-        <div class="modal-box">
-            <h3 class="hasil-judul">Hasil Deteksi Stunting</h3>
-            <p style="color: #333;">
-                <strong>Prediksi Kelahiran Anak Anda:</strong>
-                <span class="{{ $warna }}" style="font-size: 28px; font-weight: bold; text-transform: uppercase;">
-                    {{ $hasil_prediksi }}
-                </span>
-            </p>
-            <p class="hasil-catatan">
-                <strong>NB:</strong>
-                <em>Sistem DetekStunting dapat melakukan kesalahan dalam prediksi.</em> 
-                Hasil di atas hanya sebagai analisis awal. Selalu lakukan pemeriksaan kesehatan rutin 
-                selama kehamilan dan kunjungi fasilitas kesehatan jika Anda mengalami masalah kesehatan.
-            </p>
-
-            @if ($rekomendasi)
-            <div class="rekomendasi-box">
-                <h3 class="hasil-judul">Rekomendasi untuk Anda:</h3>
-                <ul style="list-style: none; padding-left: 0; margin: 0;">
-                    <li>
-                        <strong style="color: {{ $rekomendasi['usia']['status'] == 'merah' ? '#dc3545' : '#28a745' }};">Usia Ibu:</strong>
-                        <span style="color: #333;">{{ $rekomendasi['usia']['teks'] }}</span>
-                    </li>
-                    <li>
-                        <strong style="color: {{ $rekomendasi['lila']['status'] == 'merah' ? '#dc3545' : '#28a745' }};">LILA:</strong>
-                        <span style="color: #333;">{{ $rekomendasi['lila']['teks'] }}</span>
-                    </li>
-                    <li>
-                        <strong style="color: {{ $rekomendasi['tb']['status'] == 'merah' ? '#dc3545' : '#28a745' }};">Tinggi Badan Ibu:</strong>
-                        <span style="color: #333;">{{ $rekomendasi['tb']['teks'] }}</span>
-                    </li>
-                    <li>
-                        <strong style="color: {{ $rekomendasi['anak']['status'] == 'merah' ? '#dc3545' : '#28a745' }};">Jumlah Anak:</strong>
-                        <span style="color: #333;">{{ $rekomendasi['anak']['teks'] }}</span>
-                    </li>
-                    <li>
-                        <strong style="color: {{ $rekomendasi['ttd']['status'] == 'merah' ? '#dc3545' : '#28a745' }};">Tablet Tambah Darah (TTD):</strong>
-                        <span style="color: #333;">{{ $rekomendasi['ttd']['teks'] }}</span>
-                    </li>
-                    <li>
-                        <strong style="color: {{ $rekomendasi['anc']['status'] == 'merah' ? '#dc3545' : '#28a745' }};">ANC (Pemeriksaan Kehamilan):</strong>
-                        <span style="color: #333;">{{ $rekomendasi['anc']['teks'] }}</span>
-                    </li>
-                    <li>
-                        <strong style="color: {{ $rekomendasi['td']['status'] == 'merah' ? '#dc3545' : '#28a745' }};">Tekanan Darah:</strong>
-                        <span style="color: #333;">{{ $rekomendasi['td']['teks'] }}</span>
-                    </li>
-                    <li>
-                        <strong style="color: {{ $rekomendasi['hb']['status'] == 'merah' ? '#dc3545' : '#28a745' }};">Kadar HB:</strong>
-                        <span style="color: #333;">{{ $rekomendasi['hb']['teks'] }}</span>
-                    </li>
-                </ul>
+<!-- Modal Pop-up -->
+<div id="popupModal" class="modal-overlay" style="display: none;">
+    <div class="modal-box">
+        <div class="modal-content" style="display: flex; gap: 20px; align-items: flex-start;">
+            
+            <!-- Kolom Gambar -->
+            <div style="flex: 1;">
+                <img src="{{ asset('assets/img/hasil.png') }}" alt="Ilustrasi Hasil" style="width: 100%; max-width: 250px; border-radius: 10px;">
             </div>
-            @endif
 
-            <button onclick="closePopup()">Tutup</button>
-        </div>
+            <!-- Kolom Teks -->
+            <div style="flex: 2;">
+                <h3 class="hasil-judul">Hasil Deteksi Stunting</h3>
+                <p style="color: #333;">
+                    <strong>Prediksi Kelahiran Anak Anda:</strong>
+                    <span class="{{ $warna }}" style="font-size: 28px; font-weight: bold; text-transform: uppercase;">
+                        {{ $hasil_prediksi }}
+                    </span>
+                </p>
+                <p class="hasil-catatan">
+                    <strong>NB:</strong>
+                    <em>Sistem DetekStunting dapat melakukan kesalahan dalam prediksi.</em> 
+                    Hasil di atas hanya sebagai analisis awal. Selalu lakukan pemeriksaan kesehatan rutin 
+                    selama kehamilan dan kunjungi fasilitas kesehatan jika Anda mengalami masalah kesehatan.
+                </p>
+
+                @if ($rekomendasi)
+                <div class="rekomendasi-box">
+                    <h3 class="hasil-judul">Rekomendasi untuk Anda:</h3>
+                    <ul style="list-style: none; padding-left: 0; margin: 0;">
+                        <li>
+                            <strong style="color: {{ $rekomendasi['usia']['status'] == 'merah' ? '#dc3545' : '#28a745' }};">Usia Ibu:</strong>
+                            <span style="color: #333;">{{ $rekomendasi['usia']['teks'] }}</span>
+                        </li>
+                        <li>
+                            <strong style="color: {{ $rekomendasi['lila']['status'] == 'merah' ? '#dc3545' : '#28a745' }};">LILA:</strong>
+                            <span style="color: #333;">{{ $rekomendasi['lila']['teks'] }}</span>
+                        </li>
+                        <li>
+                            <strong style="color: {{ $rekomendasi['tb']['status'] == 'merah' ? '#dc3545' : '#28a745' }};">Tinggi Badan Ibu:</strong>
+                            <span style="color: #333;">{{ $rekomendasi['tb']['teks'] }}</span>
+                        </li>
+                        <li>
+                            <strong style="color: {{ $rekomendasi['anak']['status'] == 'merah' ? '#dc3545' : '#28a745' }};">Jumlah Anak:</strong>
+                            <span style="color: #333;">{{ $rekomendasi['anak']['teks'] }}</span>
+                        </li>
+                        <li>
+                            <strong style="color: {{ $rekomendasi['ttd']['status'] == 'merah' ? '#dc3545' : '#28a745' }};">Tablet Tambah Darah (TTD):</strong>
+                            <span style="color: #333;">{{ $rekomendasi['ttd']['teks'] }}</span>
+                        </li>
+                        <li>
+                            <strong style="color: {{ $rekomendasi['anc']['status'] == 'merah' ? '#dc3545' : '#28a745' }};">ANC (Pemeriksaan Kehamilan):</strong>
+                            <span style="color: #333;">{{ $rekomendasi['anc']['teks'] }}</span>
+                        </li>
+                        <li>
+                            <strong style="color: {{ $rekomendasi['td']['status'] == 'merah' ? '#dc3545' : '#28a745' }};">Tekanan Darah:</strong>
+                            <span style="color: #333;">{{ $rekomendasi['td']['teks'] }}</span>
+                        </li>
+                        <li>
+                            <strong style="color: {{ $rekomendasi['hb']['status'] == 'merah' ? '#dc3545' : '#28a745' }};">Kadar HB:</strong>
+                            <span style="color: #333;">{{ $rekomendasi['hb']['teks'] }}</span>
+                        </li>
+                    </ul>
+                </div>
+                @endif
+            </div> <!-- akhir kolom teks -->
+
+        </div> <!-- akhir modal-content -->
+
+        <button onclick="closePopup()">Tutup</button>
     </div>
+</div>
 @endif
+
         
         </div>
         <img src="{{ asset('assets/img/momandson.png') }}" alt="Pumpkin" class="hero-img" style="width: auto; height: auto;">
