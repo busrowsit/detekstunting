@@ -216,11 +216,27 @@
 }
 .rekomendasi-item {
     display: flex;
-    align-items: center;
-    margin: 0;
-    margin-bottom: 2px;
-    gap: 5px; /* jarak antara label dan input */
+    align-items: flex-start; /* agar label tetap di atas jika teks input tinggi */
+    margin-bottom: 12px;
+    gap: 10px; /* jarak antara label dan input */
 }
+
+.rekomendasi-item strong {
+    width: 220px; /* lebar tetap untuk semua label agar rata kiri */
+    flex-shrink: 0; /* supaya label tidak mengecil */
+    display: inline-block;
+    color: #333;
+}
+
+.rekomendasi-item input {
+    flex: 1; /* input akan mengisi sisa ruang */
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    font-weight: 500;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
         </style>
     <link rel="stylesheet" href="{{ asset('user-style.css') }}">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -351,8 +367,11 @@
 
                         <label>Berapa Tekanan Darah Anda?</label>
                         <div class="input-container">
-                            <input type="text" name="tekanan_darah" required oninput="updateKategoriTekananDarah(this)" placeholder="Contoh: 120/80">
+                            <input type="text" name="tekanan_darah" id="tekananDarahInput" 
+                                    required placeholder="Contoh: 120/80"
+                                    oninput="updateKategoriTekananDarah(this); validateTekananDarahFormat(this)">
                             <span class="top-text" id="kategoriTekananDarah"></span><br>
+                            <small id="tekananDarahError" style="color: red; display: none;">Format harus 120/80</small>
                         </div>
 
                         <label>Berapa Kadar Hemoglobin (HB) Anda?</label>
@@ -480,6 +499,20 @@
     </footer>
 
     <script>
+        function validateTekananDarahFormat(input) {
+    const value = input.value.trim();
+    const pattern = /^\d{2,3}\/\d{2,3}$/; // Format: 2–3 digit / 2–3 digit
+    const errorMsg = document.getElementById("tekananDarahError");
+
+    if (!pattern.test(value)) {
+        errorMsg.style.display = "inline";
+        input.style.borderColor = "red";
+    } else {
+        errorMsg.style.display = "none";
+        input.style.borderColor = "";
+    }
+}
+
         let currentStep = 0;
         const steps = document.querySelectorAll(".step");
     
