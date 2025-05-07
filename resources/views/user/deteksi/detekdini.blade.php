@@ -371,7 +371,7 @@
                                     required placeholder="Contoh: 120/80"
                                     oninput="updateKategoriTekananDarah(this); validateTekananDarahFormat(this)">
                             <span class="top-text" id="kategoriTekananDarah"></span><br>
-                            <small id="tekananDarahError" style="color: red; display: none;">Format harus 120/80</small>
+                            <small id="tekananDarahError" style="color: #dc3545; font-weight: bold; display: none;">Format harus 120/80</small>
                         </div>
 
                         <label>Berapa Kadar Hemoglobin (HB) Anda?</label>
