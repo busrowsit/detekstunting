@@ -318,7 +318,7 @@ class DeteksiController extends Controller
                 }
             }
         }
-        return "mbuh"; // Default jika tidak masuk ke kondisi mana pun
+        return "Mohon Ulang Lagi Eror Prediksi"; // Default jika tidak masuk ke kondisi mana pun
     }
     
     public function show(string $id, Request $request)
