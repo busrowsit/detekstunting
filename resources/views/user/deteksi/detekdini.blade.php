@@ -282,7 +282,7 @@
             <p style="color: lightgreen;">{{ session('success') }}</p>
             @endif
 
-            <form id="deteksiForm" method="POST" action="{{ route('user.deteksi.store') }}" enctype="multipart/form-data">
+            <form id="deteksiForm" method="POST" action="{{ route('user.deteksi.store') }}" enctype="multipart/form-data" onsubmit="return validateForm()">
                 @csrf
                 <div class="input-box">
                     <div class="step active">
@@ -499,6 +499,21 @@
     </footer>
 
     <script>
+        function validateForm() {
+    const tekananInput = document.getElementById("tekananDarahInput");
+    const value = tekananInput.value.trim();
+    const errorText = document.getElementById("tekananDarahError");
+    const regex = /^\d{2,3}\/\d{2,3}$/;
+
+    if (!regex.test(value)) {
+        errorText.style.display = "inline";
+        tekananInput.focus();
+        return false;
+    }
+
+    return true; // izinkan submit kalau valid
+}
+
         function validateTekananDarahFormat(input) {
     const value = input.value.trim();
     const pattern = /^\d{2,3}\/\d{2,3}$/; // Format: 2–3 digit / 2–3 digit
